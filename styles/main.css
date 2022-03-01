@@ -186,6 +186,13 @@ input[type=submit] {
     width: 100%;
 }
 
+/* mobile phones & tablets */
+@media only screen and (max-width: 768px) {
+	[class*="col-"] {
+		width: 100%;
+	}
+}
+
 /* For large enough screens, use 12-column grid */
 @media only screen and (min-width: 768px) {
     .row {
@@ -226,5 +233,9 @@ input[type=submit] {
 
     .col-1 {
         width: 8.33%;
+    }
+    
+    .login {
+        width: 100%;
     }
 }
