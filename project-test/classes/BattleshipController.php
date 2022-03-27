@@ -3,8 +3,19 @@ class BattleshipController {
 
     private $command;
 
+    private $db;
+
     public function __construct($command) {
+        //***********************************
+        // If we use Composer to include the Monolog Logger
+        // global $log;
+        // $this->logger = new \Monolog\Logger("BattleshipController");
+        // $this->logger->pushHandler($log);
+        //***********************************
+
         $this->command = $command;
+
+        $this->db = new Database();
     }
 
     public function run() {
@@ -45,17 +56,77 @@ class BattleshipController {
     // HANDLES LOGIN LOGIC AND LOADS LOGIN PAGE
     public function login() {
         $error_message = "";
+        $error_message_confirm = "";
         if (isset($_POST["username"]) && !empty($_POST["password"])) {
-            if ($this->validatePassword($_POST["password"])) {
-                $_SESSION["username"] = $_POST["username"];
-                $_SESSION["password"] = $_POST["password"];
-                header("Location: ?command=game");
-                return;
+            $data = $this->db->query("select * from user where username = ?;", "s", $_POST["username"]);
+            if (empty($data)) {
+                $error_message = "Error checking for user";
+            } else if (!empty($data)) {
+                if (password_verify($_POST["password"], $data[0]["password"])) {
+                    $_SESSION["username"] = $_POST["username"];
+                    $_SESSION["password"] = $_POST["password"];
+                    $_SESSION["score"] = 0;
+                    header("Location: ?command=game");
+                    return;
+                } else {
+                    $error_message = "Wrong password";
+                }
             }
-            $error_message = "INVALID USERNAME AND PASSWORD";
+        } else if (isset($_POST["new_username"]) && !empty($_POST["new_password"])) {
+            $data = $this->db->query("select * from user where username = ?;", "s", $_POST["new_username"]);
+            if (!empty($data)) {
+                $error_message_confirm = "ACCOUNT WITH THIS USERNAME ALREADY EXISTS";
+            } else if (!$this->validatePassword($_POST["new_password"])) {
+                $error_message_confirm = "PASSWORD DOES NOT MEET REQUIREMENTS";
+            } else if ($_POST["new_password"] !== $_POST["new_password_confirm"]) {
+                $error_message_confirm = "PASSWORDS DO NOT MATCH";
+            } else {
+                $insert = $this->db->query("insert into user(username, password) values (?, ?);", 
+                        "ss", $_POST["new_username"], 
+                        password_hash($_POST["new_password"], PASSWORD_DEFAULT));
+                if ($insert === false) {
+                    $error_message_confirm = "Error inserting user";
+                } else {
+                    $_SESSION["username"] = $_POST["new_username"];
+                    $_SESSION["password"] = $_POST["new_password"];
+                    $_SESSION["score"] = 0;
+                    header("Location: ?command=game");
+                    return;
+                }
+            }
         }
+        include("templates/login.php");
+    }
 
-        include "templates/login.php";
+    //create account
+    public function createAccount() {
+        $error_messag = "hey";
+        if (isset($_POST["new_username"]) && !empty($_POST["new_password"])) {
+            $data = $this->db->query("select * from user where username = ?;", "s", $_POST["username"]);
+            if (!empty($data)) {
+                $error_messag = "ACCOUNT WITH THIS USERNAME ALREADY EXISTS";
+            } else if (!$this->validatePassword($_POST["new_password"])) {
+                $error_messag = "PASSWORD DOES NOT MEET REQUIREMENTS";
+            } else { // empty, no user found
+                // TODO: input validation
+                // Note: never store clear-text passwords in the database
+                //       PHP provides password_hash() and password_verify()
+                //       to provide password verification
+                $insert = $this->db->query("insert into user (username, password) values (?, ?);", 
+                        "ss", $_POST["new_username"], $_POST["new_password"], 
+                        password_hash($_POST["new_password"], PASSWORD_DEFAULT));
+                if ($insert === false) {
+                    $error_messag = "Error inserting user";
+                } else {
+                    $_SESSION["username"] = $_POST["new_username"];
+                    $_SESSION["password"] = $_POST["new_password"];
+                    $_SESSION["score"] = 0;
+                    header("Location: ?command=game");
+                    return;
+                }
+            }
+        }
+        include("templates/login.php");
     }
 
     // RUNS GAME LOGIC
