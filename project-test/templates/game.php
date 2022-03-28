@@ -1,45 +1,3 @@
-<!-- <!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="UTF-8">  
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="author" content="Ian Sohan">
-        <meta name="description" content="Wordle Extreme Game Page">  
-        <title>Wordle Extreme</title>
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous"> 
-    </head>
-    <body>
-        <div class="container" style="margin-top: 15px;">
-            <div class="row col-xs-8">
-                <h1>Wordle Extreme Game</h1>
-                <h3>Name: <?=$user["name"]?></h3>
-                <h3>Email: <?=$user["email"]?></h3>
-                <h3>Guess #: <?=$user["guess_count"]?></h3>
-            </div>
-            <div class="row">
-                <div class="col-xs-8 mx-auto">
-                    <form action="?command=word" method="post">
-                        <div class="p-5 bg-info border rounded-3">
-                            <h3>Instructions:</h3>
-                            <h5>Type in a word as a guess, and the game tells you information to improve your guess.</h5>
-                            <input type="hidden" name="wordid" value="<?=$word["id"]?>"/>
-                            <?=$message?>
-                        </div>
-                        <div class="h-10 p-5 mb-3">
-                            <input type="text" class="form-control" id="guess" name="guess" placeholder="Type your guess here...">
-                        </div>
-                        <div class="text-center">                
-                            <button type="submit" class="btn btn-success">Submit</button>
-                            <a href="?command=gameover" class="btn btn-danger">Give Up</a>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
-    </body>
-</html> -->
-
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -62,8 +20,8 @@
                     <li class="active">
                         <a href="#">Play Game</a>
                     </li>
-                    <li><a href="scoreboard.html">Scoreboard</a></li>
-                    <li><a href="instructions.html">Instructions</a></li>
+                    <li><a href="?command=scoreboard">Scoreboard</a></li>
+                    <li><a href="?command=instructions">Instructions</a></li>
                     <li><a href="?command=logout">Log Out</a></li>
                 </ul>
             </nav>

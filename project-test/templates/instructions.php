@@ -17,12 +17,12 @@
         <header class="col-12">
             <nav>
                 <ul>
-                    <li><a href="index.html">Play Game</a></li>
-                    <li><a href="scoreboard.html">Scoreboard</a></li>
+                    <li><a href="?command=game">Play Game</a></li>
+                    <li><a href="?command=scoreboard">Scoreboard</a></li>
                     <li class="active">
-                        <a href="instructions.html">Instructions</a>
+                        <a href="#">Instructions</a>
                     </li>
-                    <li><a href="login.html">Log In</a></li>
+                    <li><a href="?command=logout">Log Out</a></li>
                 </ul>
             </nav>
         </header>

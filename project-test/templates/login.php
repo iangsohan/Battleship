@@ -18,8 +18,8 @@
             <nav>
                 <ul>
                     <li><a href="?command=game">Play Game</a></li>
-                    <li><a href="scoreboard.html">Scoreboard</a></li>
-                    <li><a href="instructions.html">Instructions</a></li>
+                    <li><a href="?command=scoreboard">Scoreboard</a></li>
+                    <li><a href="?command=instructions">Instructions</a></li>
                     <li class="active"><a href="#">Log In</a></li>
                 </ul>
             </nav>
@@ -40,7 +40,7 @@
                         <p>Username: <input type="text" class="form-control" id="username" name="username"></p>
                         <p>Password: <input type="password" class="form-control" id="password" name="password"></p>
                         <div class="text-center">                
-                            <button type="submit" class="btn btn-info">Login</button>
+                            <button type="submit" class="btn btn-info mb-3">Login</button>
                         </div>
                     </form>
                     <?=$error_message?>
@@ -54,7 +54,7 @@
                         <p>Password: <input type="password" class="form-control" id="new_password" name="new_password"></p>
                         <p>Confirm: <input type="password" class="form-control" id="new_password_confirm" name="new_password_confirm"></p>
                         <div class="text-center">                
-                            <button type="submit" class="btn btn-info">Create Account</button>
+                            <button type="submit" class="btn btn-info mb-3">Create Account</button>
                         </div>
                     </form>
                     <?=$error_message_confirm?>

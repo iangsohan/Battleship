@@ -6,15 +6,7 @@ class BattleshipController {
     private $db;
 
     public function __construct($command) {
-        //***********************************
-        // If we use Composer to include the Monolog Logger
-        // global $log;
-        // $this->logger = new \Monolog\Logger("BattleshipController");
-        // $this->logger->pushHandler($log);
-        //***********************************
-
         $this->command = $command;
-
         $this->db = new Database();
     }
 
@@ -25,12 +17,26 @@ class BattleshipController {
             case "game":
                 $this->game();
                 break;
+            case "scoreboard":
+                $this->scoreboard();
+                break;
+            case "instructions":
+                $this->instructions();
+                break;
             case "logout":
                 $this->destroySession();
             default:
                 $this->login();
                 break;
         }
+    }
+
+    public function scoreboard() {
+        include("templates/scoreboard.php");
+    }
+
+    public function instructions() {
+        include("templates/instructions.php");
     }
 
     // DESTROYS SESSION
