@@ -2,8 +2,8 @@
 class Config {
     public static $db = [
         "host" => "localhost",
-        "user" => "*****",
-        "pass" => "*****",
+        "user" => "",
+        "pass" => "",
         "database" => "battleship"
     ];
 }
