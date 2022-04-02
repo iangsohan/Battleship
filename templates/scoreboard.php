@@ -54,8 +54,8 @@
                                 </div>
                                 <form action="?command=changeUsername" method="post">
                                     <div class="change-username modal-body">
-                                            <p>New Username: <input type="text" class="form-control" id="change_username" name="change_username"></p>
-                                            <p>Password: <input type="password" class="form-control" id="change_password" name="change_password"></p>
+                                            <p>New Username: <input type="text" class="form-control" id="change_username" name="change_username" required></p>
+                                            <p>Password: <input type="password" class="form-control" id="change_password" name="change_password" required></p>
                                     </div>
                                     <div class="modal-footer">
                                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>

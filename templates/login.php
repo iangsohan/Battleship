@@ -37,8 +37,8 @@
                 <div class="login">
                     <h1>Returning User</h1>
                     <form action="?command=login" method="post">
-                        <p>Username: <input type="text" class="form-control" id="username" name="username"></p>
-                        <p>Password: <input type="password" class="form-control" id="password" name="password"></p>
+                        <p>Username: <input type="text" class="form-control" id="username" name="username" required></p>
+                        <p>Password: <input type="password" class="form-control" id="password" name="password" required></p>
                         <div class="text-center">                
                             <button type="submit" class="btn btn-info mb-3">Login</button>
                         </div>
@@ -50,9 +50,9 @@
                 <div class="login">
                     <h1>New User</h1>
                     <form action="?command=login" method="post">
-                        <p>Username: <input type="text" class="form-control" id="new_username" name="new_username"></p>
-                        <p>Password: <input type="password" class="form-control" id="new_password" name="new_password"></p>
-                        <p>Confirm: <input type="password" class="form-control" id="new_password_confirm" name="new_password_confirm"></p>
+                        <p>Username: <input type="text" class="form-control" id="new_username" name="new_username" required></p>
+                        <p>Password: <input type="password" class="form-control" id="new_password" name="new_password" required></p>
+                        <p>Confirm: <input type="password" class="form-control" id="new_password_confirm" name="new_password_confirm" required></p>
                         <div class="text-center">                
                             <button type="submit" class="btn btn-info mb-3">Create Account</button>
                         </div>

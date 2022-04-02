@@ -39,6 +39,9 @@ class BattleshipController {
             if (!empty($new_user)) {
                 $_SESSION["change_error_message"] = "USERNAME TAKEN";
                 return;
+            } else if (!$this->validateUsername($_POST["change_username"])) {
+                $_SESSION["change_error_message"] = "USERNAME DOES NOT MEET REQUIREMENTS";
+                return;
             }
 
             $data = $this->db->query("select * from user where username = ?;", "s", $_SESSION["username"]);
