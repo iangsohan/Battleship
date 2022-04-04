@@ -1,4 +1,5 @@
 <?php
+// Authors: Emma Forrestal & Ian Sohan
 class BattleshipController {
 
     private $command;

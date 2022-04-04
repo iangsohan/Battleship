@@ -1,5 +1,5 @@
 <?php
-
+// Authors: Emma Forrestal
 class Database {
     private $mysqli;
 

@@ -1,5 +1,5 @@
 <?php
-
+// Authors: Emma Forrestal & Ian Sohan
 // START SESSION
 session_start();
 
