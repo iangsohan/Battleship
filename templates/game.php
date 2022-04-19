@@ -34,8 +34,8 @@
                     <img class="logo" src="styles/logo.png" alt="Battleship logo" />
                 </div>
                 <div class="score col-3">
-                    <p>Score: 0</p>
-                    <button type="button" class="btn btn-danger" title="New Game button">New Game</button>
+                    <p id="score">Score: 0</p>
+                    <button type="button" class="btn btn-danger" title="New Game button" onclick="newGame();">New Game</button>
                 </div>
             </section>
             <section>
@@ -43,124 +43,124 @@
                     <h1>Opponent</h1>
                     <div class="btn-toolbar mb-3" role="toolbar" aria-label="Toolbar with button groups"  style="background-image: url('styles/grid.png')">
                         <div class="btn-group mr-2" role="group" aria-label="First group" style="width: 100%;">
-                            <button type="button" class="btn btn-outline-secondary" style="aspect-ratio: 1 / 1;" title="a0o"></button>
-                            <button type="button" class="btn btn-outline-secondary" title="a1o"></button>
-                            <button type="button" class="btn btn-outline-secondary" title="a2o"></button>
-                            <button type="button" class="btn btn-outline-secondary" title="a3o"></button>
-                            <button type="button" class="btn btn-outline-secondary" title="a4o"></button>
-                            <button type="button" class="btn btn-outline-secondary" title="a5o"></button>
-                            <button type="button" class="btn btn-outline-secondary" title="a6o"></button>
-                            <button type="button" class="btn btn-outline-secondary" title="a7o"></button>
-                            <button type="button" class="btn btn-outline-secondary" title="a8o"></button>
-                            <button type="button" class="btn btn-outline-secondary" title="a9o"></button>
+                            <button type="button" class="btn btn-outline-secondary" style="aspect-ratio: 1 / 1;" title="a0o" id="0"></button>
+                            <button type="button" class="btn btn-outline-secondary" title="a1o" id="1"></button>
+                            <button type="button" class="btn btn-outline-secondary" title="a2o" id="2"></button>
+                            <button type="button" class="btn btn-outline-secondary" title="a3o" id="3"></button>
+                            <button type="button" class="btn btn-outline-secondary" title="a4o" id="4"></button>
+                            <button type="button" class="btn btn-outline-secondary" title="a5o" id="5"></button>
+                            <button type="button" class="btn btn-outline-secondary" title="a6o" id="6"></button>
+                            <button type="button" class="btn btn-outline-secondary" title="a7o" id="7"></button>
+                            <button type="button" class="btn btn-outline-secondary" title="a8o" id="8"></button>
+                            <button type="button" class="btn btn-outline-secondary" title="a9o" id="9"></button>
                         </div>
                         <div class="btn-group mr-2" role="group" aria-label="First group" style="width: 100%;">
-                            <button type="button" class="btn btn-outline-secondary" style="aspect-ratio: 1 / 1;" title="b0o"></button>
-                            <button type="button" class="btn btn-outline-secondary" title="b1o"></button>
-                            <button type="button" class="btn btn-outline-secondary" title="b2o"></button>
-                            <button type="button" class="btn btn-outline-secondary" title="b3o"></button>
-                            <button type="button" class="btn btn-outline-secondary" title="b4o"></button>
-                            <button type="button" class="btn btn-outline-secondary" title="b5o"></button>
-                            <button type="button" class="btn btn-outline-secondary" title="b6o"></button>
-                            <button type="button" class="btn btn-outline-secondary" title="b7o"></button>
-                            <button type="button" class="btn btn-outline-secondary" title="b8o"></button>
-                            <button type="button" class="btn btn-outline-secondary" title="b9o"></button>
+                            <button type="button" class="btn btn-outline-secondary" style="aspect-ratio: 1 / 1;" title="b0o" id="10"></button>
+                            <button type="button" class="btn btn-outline-secondary" title="b1o" id="11"></button>
+                            <button type="button" class="btn btn-outline-secondary" title="b2o" id="12"></button>
+                            <button type="button" class="btn btn-outline-secondary" title="b3o" id="13"></button>
+                            <button type="button" class="btn btn-outline-secondary" title="b4o" id="14"></button>
+                            <button type="button" class="btn btn-outline-secondary" title="b5o" id="15"></button>
+                            <button type="button" class="btn btn-outline-secondary" title="b6o" id="16"></button>
+                            <button type="button" class="btn btn-outline-secondary" title="b7o" id="17"></button>
+                            <button type="button" class="btn btn-outline-secondary" title="b8o" id="18"></button>
+                            <button type="button" class="btn btn-outline-secondary" title="b9o" id="19"></button>
                         </div>
                         <div class="btn-group mr-2" role="group" aria-label="First group" style="width: 100%;">
-                            <button type="button" class="btn btn-outline-secondary" style="aspect-ratio: 1 / 1;" title="c0o"></button>
-                            <button type="button" class="btn btn-outline-secondary" title="c1o"></button>
-                            <button type="button" class="btn btn-outline-secondary" title="c2o"></button>
-                            <button type="button" class="btn btn-outline-secondary" title="c3o"></button>
-                            <button type="button" class="btn btn-outline-secondary" title="c4o"></button>
-                            <button type="button" class="btn btn-outline-secondary" title="c5o"></button>
-                            <button type="button" class="btn btn-outline-secondary" title="c6o"></button>
-                            <button type="button" class="btn btn-outline-secondary" title="c7o"></button>
-                            <button type="button" class="btn btn-outline-secondary" title="c8o"></button>
-                            <button type="button" class="btn btn-outline-secondary" title="c9o"></button>
+                            <button type="button" class="btn btn-outline-secondary" style="aspect-ratio: 1 / 1;" title="c0o" id="20"></button>
+                            <button type="button" class="btn btn-outline-secondary" title="c1o" id="21"></button>
+                            <button type="button" class="btn btn-outline-secondary" title="c2o" id="22"></button>
+                            <button type="button" class="btn btn-outline-secondary" title="c3o" id="23"></button>
+                            <button type="button" class="btn btn-outline-secondary" title="c4o" id="24"></button>
+                            <button type="button" class="btn btn-outline-secondary" title="c5o" id="25"></button>
+                            <button type="button" class="btn btn-outline-secondary" title="c6o" id="26"></button>
+                            <button type="button" class="btn btn-outline-secondary" title="c7o" id="27"></button>
+                            <button type="button" class="btn btn-outline-secondary" title="c8o" id="28"></button>
+                            <button type="button" class="btn btn-outline-secondary" title="c9o" id="29"></button>
                         </div>
                         <div class="btn-group mr-2" role="group" aria-label="First group" style="width: 100%;">
-                            <button type="button" class="btn btn-outline-secondary" style="aspect-ratio: 1 / 1;" title="d0o"></button>
-                            <button type="button" class="btn btn-outline-secondary" title="d1o"></button>
-                            <button type="button" class="btn btn-outline-secondary" title="d2o"></button>
-                            <button type="button" class="btn btn-outline-secondary" title="d3o"></button>
-                            <button type="button" class="btn btn-outline-secondary" title="d4o"></button>
-                            <button type="button" class="btn btn-outline-secondary" title="d5o"></button>
-                            <button type="button" class="btn btn-outline-secondary" title="d6o"></button>
-                            <button type="button" class="btn btn-outline-secondary" title="d7o"></button>
-                            <button type="button" class="btn btn-outline-secondary" title="d8o"></button>
-                            <button type="button" class="btn btn-outline-secondary" title="d9o"></button>
+                            <button type="button" class="btn btn-outline-secondary" style="aspect-ratio: 1 / 1;" title="d0o" id="30"></button>
+                            <button type="button" class="btn btn-outline-secondary" title="d1o" id="31"></button>
+                            <button type="button" class="btn btn-outline-secondary" title="d2o" id="32"></button>
+                            <button type="button" class="btn btn-outline-secondary" title="d3o" id="33"></button>
+                            <button type="button" class="btn btn-outline-secondary" title="d4o" id="34"></button>
+                            <button type="button" class="btn btn-outline-secondary" title="d5o" id="35"></button>
+                            <button type="button" class="btn btn-outline-secondary" title="d6o" id="36"></button>
+                            <button type="button" class="btn btn-outline-secondary" title="d7o" id="37"></button>
+                            <button type="button" class="btn btn-outline-secondary" title="d8o" id="38"></button>
+                            <button type="button" class="btn btn-outline-secondary" title="d9o" id="39"></button>
                         </div>
                         <div class="btn-group mr-2" role="group" aria-label="First group" style="width: 100%;">
-                            <button type="button" class="btn btn-outline-secondary" style="aspect-ratio: 1 / 1;" title="e0o"></button>
-                            <button type="button" class="btn btn-outline-secondary" title="e1o"></button>
-                            <button type="button" class="btn btn-outline-secondary" title="e2o"></button>
-                            <button type="button" class="btn btn-outline-secondary" title="e3o"></button>
-                            <button type="button" class="btn btn-outline-secondary" title="e4o"></button>
-                            <button type="button" class="btn btn-outline-secondary" title="e5o"></button>
-                            <button type="button" class="btn btn-outline-secondary" title="e6o"></button>
-                            <button type="button" class="btn btn-outline-secondary" title="e7o"></button>
-                            <button type="button" class="btn btn-outline-secondary" title="e8o"></button>
-                            <button type="button" class="btn btn-outline-secondary" title="e9o"></button>
+                            <button type="button" class="btn btn-outline-secondary" style="aspect-ratio: 1 / 1;" title="e0o" id="40"></button>
+                            <button type="button" class="btn btn-outline-secondary" title="e1o" id="41"></button>
+                            <button type="button" class="btn btn-outline-secondary" title="e2o" id="42"></button>
+                            <button type="button" class="btn btn-outline-secondary" title="e3o" id="43"></button>
+                            <button type="button" class="btn btn-outline-secondary" title="e4o" id="44"></button>
+                            <button type="button" class="btn btn-outline-secondary" title="e5o" id="45"></button>
+                            <button type="button" class="btn btn-outline-secondary" title="e6o" id="46"></button>
+                            <button type="button" class="btn btn-outline-secondary" title="e7o" id="47"></button>
+                            <button type="button" class="btn btn-outline-secondary" title="e8o" id="48"></button>
+                            <button type="button" class="btn btn-outline-secondary" title="e9o" id="49"></button>
                         </div>
                         <div class="btn-group mr-2" role="group" aria-label="First group" style="width: 100%;">
-                            <button type="button" class="btn btn-outline-secondary" style="aspect-ratio: 1 / 1;" title="f0o"></button>
-                            <button type="button" class="btn btn-outline-secondary" title="f1o"></button>
-                            <button type="button" class="btn btn-outline-secondary" title="f2o"></button>
-                            <button type="button" class="btn btn-outline-secondary" title="f3o"></button>
-                            <button type="button" class="btn btn-outline-secondary" title="f4o"></button>
-                            <button type="button" class="btn btn-outline-secondary" title="f5o"></button>
-                            <button type="button" class="btn btn-outline-secondary" title="f6o"></button>
-                            <button type="button" class="btn btn-outline-secondary" title="f7o"></button>
-                            <button type="button" class="btn btn-outline-secondary" title="f8o"></button>
-                            <button type="button" class="btn btn-outline-secondary" title="f9o"></button>
+                            <button type="button" class="btn btn-outline-secondary" style="aspect-ratio: 1 / 1;" title="f0o" id="50"></button>
+                            <button type="button" class="btn btn-outline-secondary" title="f1o" id="51"></button>
+                            <button type="button" class="btn btn-outline-secondary" title="f2o" id="52"></button>
+                            <button type="button" class="btn btn-outline-secondary" title="f3o" id="53"></button>
+                            <button type="button" class="btn btn-outline-secondary" title="f4o" id="54"></button>
+                            <button type="button" class="btn btn-outline-secondary" title="f5o" id="55"></button>
+                            <button type="button" class="btn btn-outline-secondary" title="f6o" id="56"></button>
+                            <button type="button" class="btn btn-outline-secondary" title="f7o" id="57"></button>
+                            <button type="button" class="btn btn-outline-secondary" title="f8o" id="58"></button>
+                            <button type="button" class="btn btn-outline-secondary" title="f9o" id="59"></button>
                         </div>
                         <div class="btn-group mr-2" role="group" aria-label="First group" style="width: 100%;">
-                            <button type="button" class="btn btn-outline-secondary" style="aspect-ratio: 1 / 1;" title="g0o"></button>
-                            <button type="button" class="btn btn-outline-secondary" title="g1o"></button>
-                            <button type="button" class="btn btn-outline-secondary" title="g2o"></button>
-                            <button type="button" class="btn btn-outline-secondary" title="g3o"></button>
-                            <button type="button" class="btn btn-outline-secondary" title="g4o"></button>
-                            <button type="button" class="btn btn-outline-secondary" title="g5o"></button>
-                            <button type="button" class="btn btn-outline-secondary" title="g6o"></button>
-                            <button type="button" class="btn btn-outline-secondary" title="g7o"></button>
-                            <button type="button" class="btn btn-outline-secondary" title="g8o"></button>
-                            <button type="button" class="btn btn-outline-secondary" title="g9o"></button>
+                            <button type="button" class="btn btn-outline-secondary" style="aspect-ratio: 1 / 1;" title="g0o" id="60"></button>
+                            <button type="button" class="btn btn-outline-secondary" title="g1o" id="61"></button>
+                            <button type="button" class="btn btn-outline-secondary" title="g2o" id="62"></button>
+                            <button type="button" class="btn btn-outline-secondary" title="g3o" id="63"></button>
+                            <button type="button" class="btn btn-outline-secondary" title="g4o" id="64"></button>
+                            <button type="button" class="btn btn-outline-secondary" title="g5o" id="65"></button>
+                            <button type="button" class="btn btn-outline-secondary" title="g6o" id="66"></button>
+                            <button type="button" class="btn btn-outline-secondary" title="g7o" id="67"></button>
+                            <button type="button" class="btn btn-outline-secondary" title="g8o" id="68"></button>
+                            <button type="button" class="btn btn-outline-secondary" title="g9o" id="69"></button>
                         </div>
                         <div class="btn-group mr-2" role="group" aria-label="First group" style="width: 100%;">
-                            <button type="button" class="btn btn-outline-secondary" style="aspect-ratio: 1 / 1;" title="h0o"></button>
-                            <button type="button" class="btn btn-outline-secondary" title="h1o"></button>
-                            <button type="button" class="btn btn-outline-secondary" title="h2o"></button>
-                            <button type="button" class="btn btn-outline-secondary" title="h3o"></button>
-                            <button type="button" class="btn btn-outline-secondary" title="h4o"></button>
-                            <button type="button" class="btn btn-outline-secondary" title="h5o"></button>
-                            <button type="button" class="btn btn-outline-secondary" title="h6o"></button>
-                            <button type="button" class="btn btn-outline-secondary" title="h7o"></button>
-                            <button type="button" class="btn btn-outline-secondary" title="h8o"></button>
-                            <button type="button" class="btn btn-outline-secondary" title="h9o"></button>
+                            <button type="button" class="btn btn-outline-secondary" style="aspect-ratio: 1 / 1;" title="h0o" id="70"></button>
+                            <button type="button" class="btn btn-outline-secondary" title="h1o" id="71"></button>
+                            <button type="button" class="btn btn-outline-secondary" title="h2o" id="72"></button>
+                            <button type="button" class="btn btn-outline-secondary" title="h3o" id="73"></button>
+                            <button type="button" class="btn btn-outline-secondary" title="h4o" id="74"></button>
+                            <button type="button" class="btn btn-outline-secondary" title="h5o" id="75"></button>
+                            <button type="button" class="btn btn-outline-secondary" title="h6o" id="76"></button>
+                            <button type="button" class="btn btn-outline-secondary" title="h7o" id="77"></button>
+                            <button type="button" class="btn btn-outline-secondary" title="h8o" id="78"></button>
+                            <button type="button" class="btn btn-outline-secondary" title="h9o" id="79"></button>
                         </div>
                         <div class="btn-group mr-2" role="group" aria-label="First group" style="width: 100%;">
-                            <button type="button" class="btn btn-outline-secondary" style="aspect-ratio: 1 / 1;" title="i0o"></button>
-                            <button type="button" class="btn btn-outline-secondary" title="i1o"></button>
-                            <button type="button" class="btn btn-outline-secondary" title="i2o"></button>
-                            <button type="button" class="btn btn-outline-secondary" title="i3o"></button>
-                            <button type="button" class="btn btn-outline-secondary" title="i4o"></button>
-                            <button type="button" class="btn btn-outline-secondary" title="i5o"></button>
-                            <button type="button" class="btn btn-outline-secondary" title="i6o"></button>
-                            <button type="button" class="btn btn-outline-secondary" title="i7o"></button>
-                            <button type="button" class="btn btn-outline-secondary" title="i8o"></button>
-                            <button type="button" class="btn btn-outline-secondary" title="i9o"></button>
+                            <button type="button" class="btn btn-outline-secondary" style="aspect-ratio: 1 / 1;" title="i0o" id="80"></button>
+                            <button type="button" class="btn btn-outline-secondary" title="i1o" id="81"></button>
+                            <button type="button" class="btn btn-outline-secondary" title="i2o" id="82"></button>
+                            <button type="button" class="btn btn-outline-secondary" title="i3o" id="83"></button>
+                            <button type="button" class="btn btn-outline-secondary" title="i4o" id="84"></button>
+                            <button type="button" class="btn btn-outline-secondary" title="i5o" id="85"></button>
+                            <button type="button" class="btn btn-outline-secondary" title="i6o" id="86"></button>
+                            <button type="button" class="btn btn-outline-secondary" title="i7o" id="87"></button>
+                            <button type="button" class="btn btn-outline-secondary" title="i8o" id="88"></button>
+                            <button type="button" class="btn btn-outline-secondary" title="i9o" id="89"></button>
                         </div>
                         <div class="btn-group mr-2" role="group" aria-label="First group" style="width: 100%;">
-                            <button type="button" class="btn btn-outline-secondary" style="aspect-ratio: 1 / 1;" title="j0o"></button>
-                            <button type="button" class="btn btn-outline-secondary" title="j1o"></button>
-                            <button type="button" class="btn btn-outline-secondary" title="j2o"></button>
-                            <button type="button" class="btn btn-outline-secondary" title="j3o"></button>
-                            <button type="button" class="btn btn-outline-secondary" title="j4o"></button>
-                            <button type="button" class="btn btn-outline-secondary" title="j5o"></button>
-                            <button type="button" class="btn btn-outline-secondary" title="j6o"></button>
-                            <button type="button" class="btn btn-outline-secondary" title="j7o"></button>
-                            <button type="button" class="btn btn-outline-secondary" title="j8o"></button>
-                            <button type="button" class="btn btn-outline-secondary" title="j9o"></button>
+                            <button type="button" class="btn btn-outline-secondary" style="aspect-ratio: 1 / 1;" title="j0o" id="90"></button>
+                            <button type="button" class="btn btn-outline-secondary" title="j1o" id="91"></button>
+                            <button type="button" class="btn btn-outline-secondary" title="j2o" id="92"></button>
+                            <button type="button" class="btn btn-outline-secondary" title="j3o" id="93"></button>
+                            <button type="button" class="btn btn-outline-secondary" title="j4o" id="94"></button>
+                            <button type="button" class="btn btn-outline-secondary" title="j5o" id="95"></button>
+                            <button type="button" class="btn btn-outline-secondary" title="j6o" id="96"></button>
+                            <button type="button" class="btn btn-outline-secondary" title="j7o" id="97"></button>
+                            <button type="button" class="btn btn-outline-secondary" title="j8o" id="98"></button>
+                            <button type="button" class="btn btn-outline-secondary" title="j9o" id="99"></button>
                         </div>
                     </div>
                 </div>
@@ -168,128 +168,281 @@
                     <h1><?=$user["username"]?></h1>
                     <div class="btn-toolbar mb-3" role="toolbar" aria-label="Toolbar with button groups"  style="background-image: url('styles/grid.png')">
                         <div class="btn-group mr-2" role="group" aria-label="First group" style="width: 100%;">
-                            <button type="button" class="btn btn-outline-secondary" style="aspect-ratio: 1 / 1;" title="a0u"></button>
-                            <button type="button" class="btn btn-outline-secondary" title="a1u"></button>
-                            <button type="button" class="btn btn-outline-secondary" title="a2u"></button>
-                            <button type="button" class="btn btn-outline-secondary" title="a3u"></button>
-                            <button type="button" class="btn btn-outline-secondary" title="a4u"></button>
-                            <button type="button" class="btn btn-outline-secondary" title="a5u"></button>
-                            <button type="button" class="btn btn-outline-secondary" title="a6u"></button>
-                            <button type="button" class="btn btn-outline-secondary" title="a7u"></button>
-                            <button type="button" class="btn btn-outline-secondary" title="a8u"></button>
-                            <button type="button" class="btn btn-outline-secondary" title="a9u"></button>
+                            <button type="button" class="btn btn-outline-secondary" style="aspect-ratio: 1 / 1;" title="a0u" id="100"></button>
+                            <button type="button" class="btn btn-outline-secondary" title="a1u" id="101"></button>
+                            <button type="button" class="btn btn-outline-secondary" title="a2u" id="102"></button>
+                            <button type="button" class="btn btn-outline-secondary" title="a3u" id="103"></button>
+                            <button type="button" class="btn btn-outline-secondary" title="a4u" id="104"></button>
+                            <button type="button" class="btn btn-outline-secondary" title="a5u" id="105"></button>
+                            <button type="button" class="btn btn-outline-secondary" title="a6u" id="106"></button>
+                            <button type="button" class="btn btn-outline-secondary" title="a7u" id="107"></button>
+                            <button type="button" class="btn btn-outline-secondary" title="a8u" id="108"></button>
+                            <button type="button" class="btn btn-outline-secondary" title="a9u" id="109"></button>
                         </div>
                         <div class="btn-group mr-2" role="group" aria-label="First group" style="width: 100%;">
-                            <button type="button" class="btn btn-outline-secondary" style="aspect-ratio: 1 / 1;" title="b0u"></button>
-                            <button type="button" class="btn btn-outline-secondary" title="b1u"></button>
-                            <button type="button" class="btn btn-outline-secondary" title="b2u"></button>
-                            <button type="button" class="btn btn-outline-secondary" title="b3u"></button>
-                            <button type="button" class="btn btn-outline-secondary" title="b4u"></button>
-                            <button type="button" class="btn btn-outline-secondary" title="b5u"></button>
-                            <button type="button" class="btn btn-outline-secondary" title="b6u"></button>
-                            <button type="button" class="btn btn-outline-secondary" title="b7u"></button>
-                            <button type="button" class="btn btn-outline-secondary" title="b8u"></button>
-                            <button type="button" class="btn btn-outline-secondary" title="b9u"></button>
+                            <button type="button" class="btn btn-outline-secondary" style="aspect-ratio: 1 / 1;" title="b0u" id="110"></button>
+                            <button type="button" class="btn btn-outline-secondary" title="b1u" id="111"></button>
+                            <button type="button" class="btn btn-outline-secondary" title="b2u" id="112"></button>
+                            <button type="button" class="btn btn-outline-secondary" title="b3u" id="113"></button>
+                            <button type="button" class="btn btn-outline-secondary" title="b4u" id="114"></button>
+                            <button type="button" class="btn btn-outline-secondary" title="b5u" id="115"></button>
+                            <button type="button" class="btn btn-outline-secondary" title="b6u" id="116"></button>
+                            <button type="button" class="btn btn-outline-secondary" title="b7u" id="117"></button>
+                            <button type="button" class="btn btn-outline-secondary" title="b8u" id="118"></button>
+                            <button type="button" class="btn btn-outline-secondary" title="b9u" id="119"></button>
                         </div>
                         <div class="btn-group mr-2" role="group" aria-label="First group" style="width: 100%;">
-                            <button type="button" class="btn btn-outline-secondary" style="aspect-ratio: 1 / 1;" title="c0u"></button>
-                            <button type="button" class="btn btn-outline-secondary" title="c1u"></button>
-                            <button type="button" class="btn btn-outline-secondary" title="c2u"></button>
-                            <button type="button" class="btn btn-outline-secondary" title="c3u"></button>
-                            <button type="button" class="btn btn-outline-secondary" title="c4u"></button>
-                            <button type="button" class="btn btn-outline-secondary" title="c5u"></button>
-                            <button type="button" class="btn btn-outline-secondary" title="c6u"></button>
-                            <button type="button" class="btn btn-outline-secondary" title="c7u"></button>
-                            <button type="button" class="btn btn-outline-secondary" title="c8u"></button>
-                            <button type="button" class="btn btn-outline-secondary" title="c9u"></button>
+                            <button type="button" class="btn btn-outline-secondary" style="aspect-ratio: 1 / 1;" title="c0u" id="120"></button>
+                            <button type="button" class="btn btn-outline-secondary" title="c1u" id="121"></button>
+                            <button type="button" class="btn btn-outline-secondary" title="c2u" id="122"></button>
+                            <button type="button" class="btn btn-outline-secondary" title="c3u" id="123"></button>
+                            <button type="button" class="btn btn-outline-secondary" title="c4u" id="124"></button>
+                            <button type="button" class="btn btn-outline-secondary" title="c5u" id="125"></button>
+                            <button type="button" class="btn btn-outline-secondary" title="c6u" id="126"></button>
+                            <button type="button" class="btn btn-outline-secondary" title="c7u" id="127"></button>
+                            <button type="button" class="btn btn-outline-secondary" title="c8u" id="128"></button>
+                            <button type="button" class="btn btn-outline-secondary" title="c9u" id="129"></button>
                         </div>
                         <div class="btn-group mr-2" role="group" aria-label="First group" style="width: 100%;">
-                            <button type="button" class="btn btn-outline-secondary" style="aspect-ratio: 1 / 1;" title="d0u"></button>
-                            <button type="button" class="btn btn-outline-secondary" title="d1u"></button>
-                            <button type="button" class="btn btn-outline-secondary" title="d2u"></button>
-                            <button type="button" class="btn btn-outline-secondary" title="d3u"></button>
-                            <button type="button" class="btn btn-outline-secondary" title="d4u"></button>
-                            <button type="button" class="btn btn-outline-secondary" title="d5u"></button>
-                            <button type="button" class="btn btn-outline-secondary" title="d6u"></button>
-                            <button type="button" class="btn btn-outline-secondary" title="d7u"></button>
-                            <button type="button" class="btn btn-outline-secondary" title="d8u"></button>
-                            <button type="button" class="btn btn-outline-secondary" title="d9u"></button>
+                            <button type="button" class="btn btn-outline-secondary" style="aspect-ratio: 1 / 1;" title="d0u" id="130"></button>
+                            <button type="button" class="btn btn-outline-secondary" title="d1u" id="131"></button>
+                            <button type="button" class="btn btn-outline-secondary" title="d2u" id="132"></button>
+                            <button type="button" class="btn btn-outline-secondary" title="d3u" id="133"></button>
+                            <button type="button" class="btn btn-outline-secondary" title="d4u" id="134"></button>
+                            <button type="button" class="btn btn-outline-secondary" title="d5u" id="135"></button>
+                            <button type="button" class="btn btn-outline-secondary" title="d6u" id="136"></button>
+                            <button type="button" class="btn btn-outline-secondary" title="d7u" id="137"></button>
+                            <button type="button" class="btn btn-outline-secondary" title="d8u" id="138"></button>
+                            <button type="button" class="btn btn-outline-secondary" title="d9u" id="139"></button>
                         </div>
                         <div class="btn-group mr-2" role="group" aria-label="First group" style="width: 100%;">
-                            <button type="button" class="btn btn-outline-secondary" style="aspect-ratio: 1 / 1;" title="e0u"></button>
-                            <button type="button" class="btn btn-outline-secondary" title="e1u"></button>
-                            <button type="button" class="btn btn-outline-secondary" title="e2u"></button>
-                            <button type="button" class="btn btn-outline-secondary" title="e3u"></button>
-                            <button type="button" class="btn btn-outline-secondary" title="e4u"></button>
-                            <button type="button" class="btn btn-outline-secondary" title="e5u"></button>
-                            <button type="button" class="btn btn-outline-secondary" title="e6u"></button>
-                            <button type="button" class="btn btn-outline-secondary" title="e7u"></button>
-                            <button type="button" class="btn btn-outline-secondary" title="e8u"></button>
-                            <button type="button" class="btn btn-outline-secondary" title="e9u"></button>
+                            <button type="button" class="btn btn-outline-secondary" style="aspect-ratio: 1 / 1;" title="e0u" id="140"></button>
+                            <button type="button" class="btn btn-outline-secondary" title="e1u" id="141"></button>
+                            <button type="button" class="btn btn-outline-secondary" title="e2u" id="142"></button>
+                            <button type="button" class="btn btn-outline-secondary" title="e3u" id="143"></button>
+                            <button type="button" class="btn btn-outline-secondary" title="e4u" id="144"></button>
+                            <button type="button" class="btn btn-outline-secondary" title="e5u" id="145"></button>
+                            <button type="button" class="btn btn-outline-secondary" title="e6u" id="146"></button>
+                            <button type="button" class="btn btn-outline-secondary" title="e7u" id="147"></button>
+                            <button type="button" class="btn btn-outline-secondary" title="e8u" id="148"></button>
+                            <button type="button" class="btn btn-outline-secondary" title="e9u" id="149"></button>
                         </div>
                         <div class="btn-group mr-2" role="group" aria-label="First group" style="width: 100%;">
-                            <button type="button" class="btn btn-outline-secondary" style="aspect-ratio: 1 / 1;" title="f0u"></button>
-                            <button type="button" class="btn btn-outline-secondary" title="f1u"></button>
-                            <button type="button" class="btn btn-outline-secondary" title="f2u"></button>
-                            <button type="button" class="btn btn-outline-secondary" title="f3u"></button>
-                            <button type="button" class="btn btn-outline-secondary" title="f4u"></button>
-                            <button type="button" class="btn btn-outline-secondary" title="f5u"></button>
-                            <button type="button" class="btn btn-outline-secondary" title="f6u"></button>
-                            <button type="button" class="btn btn-outline-secondary" title="f7u"></button>
-                            <button type="button" class="btn btn-outline-secondary" title="f8u"></button>
-                            <button type="button" class="btn btn-outline-secondary" title="f9u"></button>
+                            <button type="button" class="btn btn-outline-secondary" style="aspect-ratio: 1 / 1;" title="f0u" id="150"></button>
+                            <button type="button" class="btn btn-outline-secondary" title="f1u" id="151"></button>
+                            <button type="button" class="btn btn-outline-secondary" title="f2u" id="152"></button>
+                            <button type="button" class="btn btn-outline-secondary" title="f3u" id="153"></button>
+                            <button type="button" class="btn btn-outline-secondary" title="f4u" id="154"></button>
+                            <button type="button" class="btn btn-outline-secondary" title="f5u" id="155"></button>
+                            <button type="button" class="btn btn-outline-secondary" title="f6u" id="156"></button>
+                            <button type="button" class="btn btn-outline-secondary" title="f7u" id="157"></button>
+                            <button type="button" class="btn btn-outline-secondary" title="f8u" id="158"></button>
+                            <button type="button" class="btn btn-outline-secondary" title="f9u" id="159"></button>
                         </div>
                         <div class="btn-group mr-2" role="group" aria-label="First group" style="width: 100%;">
-                            <button type="button" class="btn btn-outline-secondary" style="aspect-ratio: 1 / 1;" title="g0u"></button>
-                            <button type="button" class="btn btn-outline-secondary" title="g1u"></button>
-                            <button type="button" class="btn btn-outline-secondary" title="g2u"></button>
-                            <button type="button" class="btn btn-outline-secondary" title="g3u"></button>
-                            <button type="button" class="btn btn-outline-secondary" title="g4u"></button>
-                            <button type="button" class="btn btn-outline-secondary" title="g5u"></button>
-                            <button type="button" class="btn btn-outline-secondary" title="g6u"></button>
-                            <button type="button" class="btn btn-outline-secondary" title="g7u"></button>
-                            <button type="button" class="btn btn-outline-secondary" title="g8u"></button>
-                            <button type="button" class="btn btn-outline-secondary" title="g9u"></button>
+                            <button type="button" class="btn btn-outline-secondary" style="aspect-ratio: 1 / 1;" title="g0u" id="160"></button>
+                            <button type="button" class="btn btn-outline-secondary" title="g1u" id="161"></button>
+                            <button type="button" class="btn btn-outline-secondary" title="g2u" id="162"></button>
+                            <button type="button" class="btn btn-outline-secondary" title="g3u" id="163"></button>
+                            <button type="button" class="btn btn-outline-secondary" title="g4u" id="164"></button>
+                            <button type="button" class="btn btn-outline-secondary" title="g5u" id="165"></button>
+                            <button type="button" class="btn btn-outline-secondary" title="g6u" id="166"></button>
+                            <button type="button" class="btn btn-outline-secondary" title="g7u" id="167"></button>
+                            <button type="button" class="btn btn-outline-secondary" title="g8u" id="168"></button>
+                            <button type="button" class="btn btn-outline-secondary" title="g9u" id="169"></button>
                         </div>
                         <div class="btn-group mr-2" role="group" aria-label="First group" style="width: 100%;">
-                            <button type="button" class="btn btn-outline-secondary" style="aspect-ratio: 1 / 1;" title="h0u"></button>
-                            <button type="button" class="btn btn-outline-secondary" title="h1u"></button>
-                            <button type="button" class="btn btn-outline-secondary" title="h2u"></button>
-                            <button type="button" class="btn btn-outline-secondary" title="h3u"></button>
-                            <button type="button" class="btn btn-outline-secondary" title="h4u"></button>
-                            <button type="button" class="btn btn-outline-secondary" title="h5u"></button>
-                            <button type="button" class="btn btn-outline-secondary" title="h6u"></button>
-                            <button type="button" class="btn btn-outline-secondary" title="h7u"></button>
-                            <button type="button" class="btn btn-outline-secondary" title="h8u"></button>
-                            <button type="button" class="btn btn-outline-secondary" title="h9u"></button>
+                            <button type="button" class="btn btn-outline-secondary" style="aspect-ratio: 1 / 1;" title="h0u" id="170"></button>
+                            <button type="button" class="btn btn-outline-secondary" title="h1u" id="171"></button>
+                            <button type="button" class="btn btn-outline-secondary" title="h2u" id="172"></button>
+                            <button type="button" class="btn btn-outline-secondary" title="h3u" id="173"></button>
+                            <button type="button" class="btn btn-outline-secondary" title="h4u" id="174"></button>
+                            <button type="button" class="btn btn-outline-secondary" title="h5u" id="175"></button>
+                            <button type="button" class="btn btn-outline-secondary" title="h6u" id="176"></button>
+                            <button type="button" class="btn btn-outline-secondary" title="h7u" id="177"></button>
+                            <button type="button" class="btn btn-outline-secondary" title="h8u" id="178"></button>
+                            <button type="button" class="btn btn-outline-secondary" title="h9u" id="179"></button>
                         </div>
                         <div class="btn-group mr-2" role="group" aria-label="First group" style="width: 100%;">
-                            <button type="button" class="btn btn-outline-secondary" style="aspect-ratio: 1 / 1;" title="i0u"></button>
-                            <button type="button" class="btn btn-outline-secondary" title="i1u"></button>
-                            <button type="button" class="btn btn-outline-secondary" title="i2u"></button>
-                            <button type="button" class="btn btn-outline-secondary" title="i3u"></button>
-                            <button type="button" class="btn btn-outline-secondary" title="i4u"></button>
-                            <button type="button" class="btn btn-outline-secondary" title="i5u"></button>
-                            <button type="button" class="btn btn-outline-secondary" title="i6u"></button>
-                            <button type="button" class="btn btn-outline-secondary" title="i7u"></button>
-                            <button type="button" class="btn btn-outline-secondary" title="i8u"></button>
-                            <button type="button" class="btn btn-outline-secondary" title="i9u"></button>
+                            <button type="button" class="btn btn-outline-secondary" style="aspect-ratio: 1 / 1;" title="i0u" id="180"></button>
+                            <button type="button" class="btn btn-outline-secondary" title="i1u" id="181"></button>
+                            <button type="button" class="btn btn-outline-secondary" title="i2u" id="182"></button>
+                            <button type="button" class="btn btn-outline-secondary" title="i3u" id="183"></button>
+                            <button type="button" class="btn btn-outline-secondary" title="i4u" id="184"></button>
+                            <button type="button" class="btn btn-outline-secondary" title="i5u" id="185"></button>
+                            <button type="button" class="btn btn-outline-secondary" title="i6u" id="186"></button>
+                            <button type="button" class="btn btn-outline-secondary" title="i7u" id="187"></button>
+                            <button type="button" class="btn btn-outline-secondary" title="i8u" id="188"></button>
+                            <button type="button" class="btn btn-outline-secondary" title="i9u" id="189"></button>
                         </div>
                         <div class="btn-group mr-2" role="group" aria-label="First group" style="width: 100%;">
-                            <button type="button" class="btn btn-outline-secondary" style="aspect-ratio: 1 / 1;" title="j0u"></button>
-                            <button type="button" class="btn btn-outline-secondary" title="j1u"></button>
-                            <button type="button" class="btn btn-outline-secondary" title="j2u"></button>
-                            <button type="button" class="btn btn-outline-secondary" title="j3u"></button>
-                            <button type="button" class="btn btn-outline-secondary" title="j4u"></button>
-                            <button type="button" class="btn btn-outline-secondary" title="j5u"></button>
-                            <button type="button" class="btn btn-outline-secondary" title="j6u"></button>
-                            <button type="button" class="btn btn-outline-secondary" title="j7u"></button>
-                            <button type="button" class="btn btn-outline-secondary" title="j8u"></button>
-                            <button type="button" class="btn btn-outline-secondary" title="j9u"></button>
+                            <button type="button" class="btn btn-outline-secondary" style="aspect-ratio: 1 / 1;" title="j0u" id="190"></button>
+                            <button type="button" class="btn btn-outline-secondary" title="j1u" id="191"></button>
+                            <button type="button" class="btn btn-outline-secondary" title="j2u" id="192"></button>
+                            <button type="button" class="btn btn-outline-secondary" title="j3u" id="193"></button>
+                            <button type="button" class="btn btn-outline-secondary" title="j4u" id="194"></button>
+                            <button type="button" class="btn btn-outline-secondary" title="j5u" id="195"></button>
+                            <button type="button" class="btn btn-outline-secondary" title="j6u" id="196"></button>
+                            <button type="button" class="btn btn-outline-secondary" title="j7u" id="197"></button>
+                            <button type="button" class="btn btn-outline-secondary" title="j8u" id="198"></button>
+                            <button type="button" class="btn btn-outline-secondary" title="j9u" id="199"></button>
                         </div>
                     </div>
                 </div>
             </section>
         </section>
+        <script type="text/javascript">
+        
+            var oppo_game = {ships:"", miss:"", hits:""};
+            var user_game = {ships:"", miss:"", hits:"", score:0};
+
+            function makeShip(size, ships, offset) {
+                var invalid = true;
+                while (invalid) {
+                    ship = [];
+                    invalid = true;
+                    var num = Math.floor(Math.random(100) * 100) + offset;
+                    var side = Math.floor(Math.random() * (3 - 0 + 1)) + 0;
+                    for (let i = 0; i < size; i++) {
+                        if (side == 0) { // UP
+                            if (num - i*10 < (0 + offset) || ships.includes(num - i*10) == true) {
+                                i = size;
+                                invalid = true;
+                            } else {
+                                ship.push(num - i*10);
+                                invalid = false;
+                            }
+                        } else if (side == 1) { // DOWN
+                            if (num + i*10 > (99 + offset) || ships.includes(num + i*10) == true) {
+                                i = size;
+                                invalid = true;
+                            } else {
+                                ship.push(num + i*10);
+                                invalid = false;
+                            }
+                        } else if (side == 2) { // LEFT
+                            if (Math.floor((num - i) / 10) != Math.floor(num / 10) || ships.includes(num - i) == true) {
+                                i = size;
+                                invalid = true;
+                            } else {
+                                ship.push(num - i);
+                                invalid = false;
+                            }
+                        } else { // RIGHT
+                            if (Math.floor((num + i) / 10) != Math.floor(num / 10) || ships.includes(num + i) == true) {
+                                i = size;
+                                invalid = true;
+                            } else {
+                                ship.push(num + i);
+                                invalid = false;
+                            }
+                        }
+                    }
+                }
+                for (let i = 0; i < ship.length; i++) {
+                    ships.push(ship[i]);
+                }
+                return ships;
+            }
+
+            function newGame() {
+                var oppo_ships = [];
+                var user_ships = [];
+
+                for (let i = 0; i < 100; i++) {
+                    
+                }
+
+                // OPPONENT SHIPS
+                oppo_ships = makeShip(5, oppo_ships, 0);
+                oppo_ships = makeShip(4, oppo_ships, 0);
+                oppo_ships = makeShip(3, oppo_ships, 0);
+                oppo_ships = makeShip(2, oppo_ships, 0);
+                oppo_ships = makeShip(1, oppo_ships, 0);
+
+                // USER SHIPS
+                user_ships = makeShip(5, user_ships, 100);
+                user_ships = makeShip(4, user_ships, 100);
+                user_ships = makeShip(3, user_ships, 100);
+                user_ships = makeShip(2, user_ships, 100);
+                user_ships = makeShip(1, user_ships, 100);
+
+                for (let i = 0; i < user_ships.length; i++) {
+                    document.getElementById(user_ships[i].toString()).classList.add("btn-light");
+                }
+                
+                console.log(oppo_ships);
+                oppo_game.ships = oppo_ships.toString();
+                oppo_game.miss = [].toString();
+                oppo_game.hits = [].toString();
+
+                user_game.ships = user_ships.toString();
+                user_game.miss = [].toString();
+                user_game.hits = [].toString();
+                user_game.score = 0;
+            }
+
+            var box_click = function() {
+                attack(this.id);
+            }
+            for (let i = 0; i < 100; i++) {
+                var num = i.toString();
+                document.getElementById(num).onclick = box_click;
+            }
+
+            function attack(id) {
+                var box = id;
+                var oppo_ships = oppo_game.ships.split(",");
+                var oppo_miss = oppo_game.miss.split(",");
+                var oppo_hits = oppo_game.hits.split(",");
+
+                var user_ships = user_game.ships.split(",");
+                var user_miss = user_game.miss.split(",");
+                var user_hits = user_game.hits.split(",");
+
+                if (user_hits.includes(box) || user_miss.includes(box)) {
+                    alert("Already clicked this box!");
+                    return;
+                } else if (oppo_ships.includes(box)) {
+                    document.getElementById(box).classList.add("btn-danger");
+                    user_hits.push(box);
+                    user_game.score += 1000;
+                } else {
+                    document.getElementById(box).classList.add("btn-warning");
+                    user_miss.push(box);
+                    user_game.score -= 10;
+                }
+
+                var oppo_box = (Math.floor(Math.random(100) * 100) + 100).toString();
+                while (oppo_hits.includes(oppo_box) || oppo_miss.includes(oppo_box)) {
+                    oppo_box = (Math.floor(Math.random(100) * 100) + 100).toString();
+                }
+                if (user_ships.includes(oppo_box)) {
+                    document.getElementById(oppo_box).classList.remove("btn-light");
+                    document.getElementById(oppo_box).classList.add("btn-danger");
+                    oppo_hits.push(oppo_box);
+                    user_game.score -= 500;
+                } else {
+                    document.getElementById(oppo_box).classList.add("btn-warning");
+                    oppo_miss.push(oppo_box);
+                    user_game.score += 20;
+                }
+
+                document.getElementById(box).style.opacity = 0.6;
+                document.getElementById(oppo_box).style.opacity = 0.6;
+                document.getElementById("score").innerHTML = "Score: " + user_game.score;
+
+                oppo_game.miss = oppo_miss.toString();
+                oppo_game.hits = oppo_hits.toString();
+                user_game.miss = user_miss.toString();
+                user_game.hits = user_hits.toString();
+            }
+            
+            // function populateValues() {
+            //     if localStorage not empty
+            //         update oppo and user games
+            // }
+
+        </script>
     </body>
 </html>
