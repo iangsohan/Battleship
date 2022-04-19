@@ -297,45 +297,33 @@
             var user_game = {ships:"", miss:"", hits:"", score:0};
 
             function makeShip(size, ships, offset) {
+                var ship = [];
                 var invalid = true;
                 while (invalid) {
                     ship = [];
                     invalid = true;
                     var num = Math.floor(Math.random(100) * 100) + offset;
                     var side = Math.floor(Math.random() * (3 - 0 + 1)) + 0;
+                    var value = function (a, b) {return a - b*10}; // UP
+                    var check = function (a) {return a < (0 + offset) || ships.includes(a) == true};
+                    if (side == 1) {
+                        value = function (a, b) {return a + b*10}; // DOWN
+                        check = function (a) {return a > (99 + offset) || ships.includes(a) == true};
+                    } else if (side == 2) {
+                        value = function (a, b) {return a - b}; // LEFT
+                        check = function (a) {return Math.floor(a / 10) != Math.floor(num / 10) || ships.includes(a) == true};
+                    } else if (side == 3) {
+                        value = function (a, b) {return a + b}; // RIGHT
+                        check = function (a) {return Math.floor(a / 10) != Math.floor(num / 10) || ships.includes(a) == true};
+                    }
                     for (let i = 0; i < size; i++) {
-                        if (side == 0) { // UP
-                            if (num - i*10 < (0 + offset) || ships.includes(num - i*10) == true) {
-                                i = size;
-                                invalid = true;
-                            } else {
-                                ship.push(num - i*10);
-                                invalid = false;
-                            }
-                        } else if (side == 1) { // DOWN
-                            if (num + i*10 > (99 + offset) || ships.includes(num + i*10) == true) {
-                                i = size;
-                                invalid = true;
-                            } else {
-                                ship.push(num + i*10);
-                                invalid = false;
-                            }
-                        } else if (side == 2) { // LEFT
-                            if (Math.floor((num - i) / 10) != Math.floor(num / 10) || ships.includes(num - i) == true) {
-                                i = size;
-                                invalid = true;
-                            } else {
-                                ship.push(num - i);
-                                invalid = false;
-                            }
-                        } else { // RIGHT
-                            if (Math.floor((num + i) / 10) != Math.floor(num / 10) || ships.includes(num + i) == true) {
-                                i = size;
-                                invalid = true;
-                            } else {
-                                ship.push(num + i);
-                                invalid = false;
-                            }
+                        var val = value(num, i);
+                        if (check(val)) {
+                            i = size;
+                            invalid = true;
+                        } else {
+                            ship.push(val);
+                            invalid = false;
                         }
                     }
                 }
@@ -348,10 +336,6 @@
             function newGame() {
                 var oppo_ships = [];
                 var user_ships = [];
-
-                for (let i = 0; i < 100; i++) {
-                    
-                }
 
                 // OPPONENT SHIPS
                 oppo_ships = makeShip(5, oppo_ships, 0);
@@ -409,6 +393,7 @@
                     user_game.score += 1000;
                 } else {
                     document.getElementById(box).classList.add("btn-warning");
+                    document.getElementById(box).style.opacity = 0.6;
                     user_miss.push(box);
                     user_game.score -= 10;
                 }
@@ -424,12 +409,11 @@
                     user_game.score -= 500;
                 } else {
                     document.getElementById(oppo_box).classList.add("btn-warning");
+                    document.getElementById(oppo_box).style.opacity = 0.6;
                     oppo_miss.push(oppo_box);
                     user_game.score += 20;
                 }
 
-                document.getElementById(box).style.opacity = 0.6;
-                document.getElementById(oppo_box).style.opacity = 0.6;
                 document.getElementById("score").innerHTML = "Score: " + user_game.score;
 
                 oppo_game.miss = oppo_miss.toString();
