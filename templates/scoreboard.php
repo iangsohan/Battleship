@@ -4,6 +4,7 @@
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1"> 
+
         <meta name="author" content="Emma Forrestal & Ian Sohan">
         <meta name="description" content="">
         <meta name="keywords" content="">   
@@ -13,6 +14,7 @@
     </head>  
     <body>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
         <header class="col-12">
             <nav>
                 <ul>
@@ -37,14 +39,14 @@
                     <p>Current Score: 0</p>
 
                     <!-- Button trigger modal -->
-                    <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal" title="Change Username button">
+                    <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#myModal" title="Change Username button">
                         Change Username
                     </button>
                     <br>
                     <p><?=$change_error_message?></p>
 
                     <!-- Modal -->
-                    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal fade in" id="myModal" tabindex="-1" aria-labelledby="myModalLabel" aria-hidden="true">
                         <div class="modal-dialog">
                             <div class="modal-content">
                                 <div class="change-username modal-header">
@@ -78,81 +80,13 @@
                         </tr>
                         </thead>
                         <tbody>
+                            <?php for ($i = 0; $i < 15; $i++) { ?>
                             <tr>
-                                <th scope="row">1</th>
-                                <td><?=$personal_scores[0]['username']?></td>
-                                <td><?=$personal_scores[0]['score']?></td>
+                                <th scope="row"><?=$i + 1?></th>
+                                <td><?=$personal_scores[$i]['username']?></td>
+                                <td><?=$personal_scores[$i]['score']?></td>
                             </tr>
-                            <tr>
-                                <th scope="row">2</th>
-                                <td><?=$personal_scores[1]['username']?></td>
-                                <td><?=$personal_scores[1]['score']?></td>
-                            </tr>
-                            <tr>
-                                <th scope="row">3</th>
-                                <td><?=$personal_scores[2]['username']?></td>
-                                <td><?=$personal_scores[2]['score']?></td>
-                            </tr>
-                            <tr>
-                                <th scope="row">4</th>
-                                <td><?=$personal_scores[3]['username']?></td>
-                                <td><?=$personal_scores[3]['score']?></td>
-                            </tr>
-                            <tr>
-                                <th scope="row">5</th>
-                                <td><?=$personal_scores[4]['username']?></td>
-                                <td><?=$personal_scores[4]['score']?></td>
-                            </tr>
-                            <tr>
-                                <th scope="row">6</th>
-                                <td><?=$personal_scores[5]['username']?></td>
-                                <td><?=$personal_scores[5]['score']?></td>
-                            </tr>
-                            <tr>
-                                <th scope="row">7</th>
-                                <td><?=$personal_scores[6]['username']?></td>
-                                <td><?=$personal_scores[6]['score']?></td>
-                            </tr>
-                            <tr>
-                                <th scope="row">8</th>
-                                <td><?=$personal_scores[7]['username']?></td>
-                                <td><?=$personal_scores[7]['score']?></td>
-                            </tr>
-                            <tr>
-                                <th scope="row">9</th>
-                                <td><?=$personal_scores[8]['username']?></td>
-                                <td><?=$personal_scores[8]['score']?></td>
-                            </tr>
-                            <tr>
-                                <th scope="row">10</th>
-                                <td><?=$personal_scores[9]['username']?></td>
-                                <td><?=$personal_scores[9]['score']?></td>
-                            </tr>
-                            <tr>
-                                <th scope="row">11</th>
-                                <td><?=$personal_scores[10]['username']?></td>
-                                <td><?=$personal_scores[10]['score']?></td>
-                            </tr>
-                            <tr>
-                                <th scope="row">12</th>
-                                <td><?=$personal_scores[11]['username']?></td>
-                                <td><?=$personal_scores[11]['score']?></td>
-                            </tr>
-                            <tr>
-                                <th scope="row">13</th>
-                                <td><?=$personal_scores[12]['username']?></td>
-                                <td><?=$personal_scores[12]['score']?></td>
-                            </tr>
-                            <tr>
-                                <th scope="row">14</th>
-                                <td><?=$personal_scores[13]['username']?></td>
-                                <td><?=$personal_scores[13]['score']?></td>
-                            </tr>
-                            <tr>
-                                <th scope="row">15</th>
-                                <td><?=$personal_scores[14]['username']?></td>
-                                <td><?=$personal_scores[14]['score']?></td>
-                            </tr>
+                            <?php } ?>
                         </tbody>
                     </table>
                 </div>
@@ -167,81 +101,13 @@
                         </tr>
                         </thead>
                         <tbody>
+                            <?php for ($i = 0; $i < 15; $i++) { ?>
                             <tr>
-                                <th scope="row">1</th>
-                                <td><?=$community_scores[0]['username']?></td>
-                                <td><?=$community_scores[0]['score']?></td>
+                                <th scope="row"><?=$i + 1?></th>
+                                <td><?=$community_scores[$i]['username']?></td>
+                                <td><?=$community_scores[$i]['score']?></td>
                             </tr>
-                            <tr>
-                                <th scope="row">2</th>
-                                <td><?=$community_scores[1]['username']?></td>
-                                <td><?=$community_scores[1]['score']?></td>
-                            </tr>
-                            <tr>
-                                <th scope="row">3</th>
-                                <td><?=$community_scores[2]['username']?></td>
-                                <td><?=$community_scores[2]['score']?></td>
-                            </tr>
-                            <tr>
-                                <th scope="row">4</th>
-                                <td><?=$community_scores[3]['username']?></td>
-                                <td><?=$community_scores[3]['score']?></td>
-                            </tr>
-                            <tr>
-                                <th scope="row">5</th>
-                                <td><?=$community_scores[4]['username']?></td>
-                                <td><?=$community_scores[4]['score']?></td>
-                            </tr>
-                            <tr>
-                                <th scope="row">6</th>
-                                <td><?=$community_scores[5]['username']?></td>
-                                <td><?=$community_scores[5]['score']?></td>
-                            </tr>
-                            <tr>
-                                <th scope="row">7</th>
-                                <td><?=$community_scores[6]['username']?></td>
-                                <td><?=$community_scores[6]['score']?></td>
-                            </tr>
-                            <tr>
-                                <th scope="row">8</th>
-                                <td><?=$community_scores[7]['username']?></td>
-                                <td><?=$community_scores[7]['score']?></td>
-                            </tr>
-                            <tr>
-                                <th scope="row">9</th>
-                                <td><?=$community_scores[8]['username']?></td>
-                                <td><?=$community_scores[8]['score']?></td>
-                            </tr>
-                            <tr>
-                                <th scope="row">10</th>
-                                <td><?=$community_scores[9]['username']?></td>
-                                <td><?=$community_scores[9]['score']?></td>
-                            </tr>
-                            <tr>
-                                <th scope="row">11</th>
-                                <td><?=$community_scores[10]['username']?></td>
-                                <td><?=$community_scores[10]['score']?></td>
-                            </tr>
-                            <tr>
-                                <th scope="row">12</th>
-                                <td><?=$community_scores[11]['username']?></td>
-                                <td><?=$community_scores[11]['score']?></td>
-                            </tr>
-                            <tr>
-                                <th scope="row">13</th>
-                                <td><?=$community_scores[12]['username']?></td>
-                                <td><?=$community_scores[12]['score']?></td>
-                            </tr>
-                            <tr>
-                                <th scope="row">14</th>
-                                <td><?=$community_scores[13]['username']?></td>
-                                <td><?=$community_scores[13]['score']?></td>
-                            </tr>
-                            <tr>
-                                <th scope="row">15</th>
-                                <td><?=$community_scores[14]['username']?></td>
-                                <td><?=$community_scores[14]['score']?></td>
-                            </tr>
+                            <?php } ?>
                         </tbody>
                     </table>
                 </div>

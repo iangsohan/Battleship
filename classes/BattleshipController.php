@@ -1,5 +1,4 @@
 <?php
-// Authors: Emma Forrestal & Ian Sohan
 class BattleshipController {
 
     private $command;
@@ -13,6 +12,8 @@ class BattleshipController {
 
     public function run() {
         switch($this->command) {
+            case "recordScore":
+                $this->recordScore();
             case "game":
                 $this->game();
                 break;
@@ -158,7 +159,7 @@ class BattleshipController {
                         "ss", $_POST["new_username"], 
                         password_hash($_POST["new_password"], PASSWORD_DEFAULT));
                 if ($insert === false) {
-                    $error_message_confirm = "Error inserting user";
+                    $error_message_confirm = "ERROR INSERTING USER";
                 } else {
                     $_SESSION["username"] = $_POST["new_username"];
                     $_SESSION["password"] = $_POST["new_password"];
@@ -169,6 +170,14 @@ class BattleshipController {
             }
         }
         include("templates/login.php");
+    }
+
+    // RECORDS GAME SCORE
+    public function recordScore() {
+        if (isset($_POST["record_score"])) {
+            $insert = $this->db->query("insert into scores(username, score) values (?, ?);", 
+                    "ss", $_SESSION["username"], $_POST["record_score"]);
+        }
     }
 
     // RUNS GAME LOGIC
