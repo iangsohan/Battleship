@@ -8,12 +8,13 @@
         <meta name="description" content="">
         <meta name="keywords" content="">   
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-        <link rel="stylesheet" href="styles/main.css">     
-        <title>Battleship</title>
-    </head>  
-    <body>
+        <link rel="stylesheet" href="styles/main.css">   
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+        <script src="templates/main.js"></script>  
+        <title>Battleship</title>
+    </head>  
+    <body onload="populateBoard();">
         <header class="col-12">
             <nav>
                 <ul>
@@ -68,10 +69,30 @@
                 </div>
             </section>
         </section>
+        
 
-        <form action="?command=recordScore" method="post" hidden>
-            <input type="text" class="form-control" id="record_score" name="record_score" value="">
-        </form>
-        <script src="templates/main.js"></script>
+        <!-- Modal -->
+        <div class="modal fade" id="myModal" tabindex="-1" aria-labelledby="myModalLabel" aria-hidden="true" data-bs-backdrop="static" data-bs-keyboard="false">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="change-username modal-header">
+                        <h3 class="modal-title" id="myModalLabel">YOU LOSE!</h3>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="change-username modal-body">
+                            <p>Score: <input type="text" class="form-control" id="show_score" name="show_score" value="" disabled></p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-danger" onclick="submitScore();">Record Score</button>
+                    </div>
+                    <form action="?command=recordScore" method="post" id="score-form" hidden>
+                        <div class="change-username modal-body">
+                                <input type="text" class="form-control" id="record_score" name="record_score" value=""></p>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
     </body>
 </html>

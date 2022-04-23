@@ -4,15 +4,18 @@
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1"> 
-        <meta name="author" content="Emma Forrestal">
+
+        <meta name="author" content="Emma Forrestal & Ian Sohan">
         <meta name="description" content="">
         <meta name="keywords" content="">   
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-        <link rel="stylesheet" href="styles/main.css">     
+        <link rel="stylesheet" href="styles/main.css">    
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+        <script src="templates/main.js"></script> 
         <title>Battleship</title>
     </head>  
     <body>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
         <header class="col-12">
             <nav>
                 <ul>
@@ -39,7 +42,7 @@
                         <p>Username: <input type="text" class="form-control" id="username" name="username" required></p>
                         <p>Password: <input type="password" class="form-control" id="password" name="password" required></p>
                         <div class="text-center">                
-                            <button type="submit" class="btn btn-info mb-3">Login</button>
+                            <button type="submit" class="btn btn-info mb-3" id="submit-login">Login</button>
                         </div>
                     </form>
                     <?=$error_message?>
@@ -49,11 +52,11 @@
                 <div class="login">
                     <h1>New User</h1>
                     <form action="?command=login" method="post">
-                        <p>Username: <input type="text" class="form-control" id="new_username" name="new_username" required></p>
-                        <p>Password: <input type="password" class="form-control" id="new_password" name="new_password" required></p>
-                        <p>Confirm: <input type="password" class="form-control" id="new_password_confirm" name="new_password_confirm" required></p>
+                        <p>Username: <input type="text" class="form-control" id="new_username" name="new_username" onkeyup="validateForm();" required></p>
+                        <p>Password: <input type="password" class="form-control" id="new_password" name="new_password" onkeyup="validateForm();" required></p>
+                        <p>Confirm: <input type="password" class="form-control" id="new_password_confirm" name="new_password_confirm" onkeyup="validateConfirm();" required></p>
                         <div class="text-center">                
-                            <button type="submit" class="btn btn-info mb-3">Create Account</button>
+                            <button type="submit" class="btn btn-info mb-3" id="submit-create" disabled>Create Account</button>
                         </div>
                     </form>
                     <?=$error_message_confirm?>

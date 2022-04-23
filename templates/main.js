@@ -1,3 +1,5 @@
+// game.php
+var gameStarted = false;
 var oppo_game = {ships:[], miss:[], hits:[]};
 var user_game = {ships:[], miss:[], hits:[], score:0};
 
@@ -38,10 +40,52 @@ function makeShip(size, ships, offset) {
     return ships;
 }
 
-function newGame() {
+function populateBoard() {
+    if (localStorage.getItem("gameStarted") != "true") {
+        return;
+    }
+    gameGrid();
+    gameStarted = true;
+    oppo_game = JSON.parse(localStorage.getItem("oppo_game"));
+    user_game = JSON.parse(localStorage.getItem("user_game"));
+    document.getElementById("score").innerHTML = "Score: " + user_game.score;
+    for (let i = 0; i < user_game.ships.length; i++) {
+        document.getElementById(user_game.ships[i].toString()).classList.add("btn-light");
+    }
+    for (let i = 0; i < user_game.hits.length; i++) {
+        document.getElementById(user_game.hits[i].toString()).classList.add("btn-danger");
+    }
+    for (let i = 0; i < user_game.miss.length; i++) {
+        document.getElementById(user_game.miss[i].toString()).classList.add("btn-warning");
+        $("#"+user_game.miss[i].toString()).css("opacity", "0.6");
+    }
+    for (let i = 0; i < oppo_game.hits.length; i++) {
+        document.getElementById(oppo_game.hits[i].toString()).classList.remove("btn-light");
+        document.getElementById(oppo_game.hits[i].toString()).classList.add("btn-danger");
+    }
+    for (let i = 0; i < oppo_game.miss.length; i++) {
+        document.getElementById(oppo_game.miss[i].toString()).classList.add("btn-warning");
+        $("#"+oppo_game.miss[i].toString()).css("opacity", "0.6");
+    }
+}
 
+function gameGrid() {
+    var box_click = function() {
+        if (gameStarted) {
+            attack(this.id);
+        }
+    }
+    for (let i = 0; i < 100; i++) {
+        var num = i.toString();
+        document.getElementById(num).onclick = box_click;
+    }
+}
+
+function newGame() {
     oppo_game = {ships:[], miss:[], hits:[]};
     user_game = {ships:[], miss:[], hits:[], score:0};
+
+    gameGrid();
 
     document.getElementById("score").innerHTML = "Score: 0";
 
@@ -57,28 +101,25 @@ function newGame() {
     oppo_game.ships = makeShip(4, oppo_game.ships, 0);
     oppo_game.ships = makeShip(3, oppo_game.ships, 0);
     oppo_game.ships = makeShip(2, oppo_game.ships, 0);
-    oppo_game.ships = makeShip(1, oppo_game.ships, 0);
+    oppo_game.ships = makeShip(2, oppo_game.ships, 0);
 
     // USER SHIPS
     user_game.ships = makeShip(5, user_game.ships, 100);
     user_game.ships = makeShip(4, user_game.ships, 100);
     user_game.ships = makeShip(3, user_game.ships, 100);
     user_game.ships = makeShip(2, user_game.ships, 100);
-    user_game.ships = makeShip(1, user_game.ships, 100);
+    user_game.ships = makeShip(2, user_game.ships, 100);
 
     for (let i = 0; i < user_game.ships.length; i++) {
         document.getElementById(user_game.ships[i].toString()).classList.add("btn-light");
     }
     
     console.log(oppo_game.ships);
-}
 
-var box_click = function() {
-    attack(this.id);
-}
-for (let i = 0; i < 100; i++) {
-    var num = i.toString();
-    document.getElementById(num).onclick = box_click;
+    gameStarted = true;
+    localStorage.setItem("gameStarted", true);
+    localStorage.setItem("oppo_game", JSON.stringify(oppo_game));
+    localStorage.setItem("user_game", JSON.stringify(user_game));
 }
 
 function attack(id) {
@@ -91,7 +132,8 @@ function attack(id) {
         user_game.hits.push(box);
         user_game.score += 1000;
         if (user_game.hits.length == 15) {
-            endGame();
+            document.getElementById("score").innerHTML = "Score: " + user_game.score;
+            endGame(true);
             return;
         }
     } else {
@@ -106,17 +148,16 @@ function attack(id) {
         oppo_box = Math.floor(Math.random(100) * 100) + 100;
     }
     if (user_game.ships.includes(oppo_box)) {
-        console.log(true);
         $("#"+oppo_box).removeClass("btn-light");
         $("#"+oppo_box).addClass("btn-danger");
         oppo_game.hits.push(oppo_box);
         user_game.score -= 500;
         if (oppo_game.hits.length == 15) {
-            endGame();
+            document.getElementById("score").innerHTML = "Score: " + user_game.score;
+            endGame(false);
             return;
         }
     } else {
-        console.log(false);
         $("#"+oppo_box).addClass("btn-warning");
         $("#"+oppo_box).css("opacity", "0.6");
         oppo_game.miss.push(oppo_box);
@@ -124,13 +165,58 @@ function attack(id) {
     }
 
     document.getElementById("score").innerHTML = "Score: " + user_game.score;
+    localStorage.setItem("oppo_game", JSON.stringify(oppo_game));
+    localStorage.setItem("user_game", JSON.stringify(user_game));
 }
 
-function endGame() {
+function endGame(winner) {
+    gameStarted = false;
+    localStorage.setItem("gameStarted", false);
+    localStorage.setItem("oppo_game", JSON.stringify(oppo_game));
+    localStorage.setItem("user_game", JSON.stringify(user_game));
+    document.getElementById("show_score").value = user_game.score;
+    if (winner) {
+        document.getElementById("myModalLabel").innerHTML = "YOU WIN!";
+    }
+    $('#myModal').modal("show");
+}
+
+function submitScore() {
     document.getElementById("record_score").value = user_game.score;
-    document.getElementById("record_score").form.submit();
+    document.getElementById("score-form").submit();
 }
 
-// function populateValues() {
-//
-// }
+
+// login.php and changeUsername()
+function validateForm() {
+    var pattern = "";
+    const id = event.target.id;
+    if (id.localeCompare("new_username") == 0 || id.localeCompare("change_username") == 0) {
+        pattern = /^[a-zA-Z][a-zA-Z0-9]{3,30}$/;
+    } else if (id.localeCompare("new_password") == 0) {
+        pattern = /^\S*(?=\S{8,100})(?=\S*[\d])(?=\S*[\W])(?=\S*[a-z])(?=\S*[A-Z])\S*$/;
+    }
+    if (pattern.test(document.getElementById(id).value) == false) {
+        $("#"+id).css("background-color", "#ff9999");
+    } else {
+        $("#"+id).css("background-color", "#b3ffb3");
+    }
+}
+
+function validateConfirm() {
+    const id = event.target.id;
+    if (document.getElementById(event.target.id).value.localeCompare(document.getElementById("new_password").value) != 0) {
+        $("#"+id).css("background-color", "#ff9999");
+    } else {
+        $("#"+id).css("background-color", "#b3ffb3");
+        document.getElementById("submit-create").disabled = false;
+    }
+}
+
+function currentScore() {
+    if (localStorage.getItem("gameStarted") != "true") {
+        return;
+    }
+    user_game = JSON.parse(localStorage.getItem("user_game"));
+    document.getElementById("current-score").innerHTML = "Current Score: " + user_game.score;
+}

@@ -9,12 +9,13 @@
         <meta name="description" content="">
         <meta name="keywords" content="">   
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-        <link rel="stylesheet" href="styles/main.css">     
-        <title>Battleship</title>
-    </head>  
-    <body>
+        <link rel="stylesheet" href="styles/main.css">  
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+        <script src="templates/main.js"></script>   
+        <title>Battleship</title>
+    </head>  
+    <body onload="currentScore();">
         <header class="col-12">
             <nav>
                 <ul>
@@ -36,7 +37,7 @@
                     <img class="logo" src="styles/logo.png" alt="Battleship logo" />
                 </div>
                 <div class="score col-3">
-                    <p>Current Score: 0</p>
+                    <p id="current-score">Current Score: 0</p>
 
                     <!-- Button trigger modal -->
                     <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#myModal" title="Change Username button">
@@ -46,7 +47,7 @@
                     <p><?=$change_error_message?></p>
 
                     <!-- Modal -->
-                    <div class="modal fade in" id="myModal" tabindex="-1" aria-labelledby="myModalLabel" aria-hidden="true">
+                    <div class="modal fade" id="myModal" tabindex="-1" aria-labelledby="myModalLabel" aria-hidden="true" data-bs-backdrop="static" data-bs-keyboard="false">
                         <div class="modal-dialog">
                             <div class="modal-content">
                                 <div class="change-username modal-header">
@@ -55,12 +56,12 @@
                                 </div>
                                 <form action="?command=changeUsername" method="post">
                                     <div class="change-username modal-body">
-                                            <p>New Username: <input type="text" class="form-control" id="change_username" name="change_username" required></p>
+                                            <p>New Username: <input type="text" class="form-control" id="change_username" name="change_username" onkeyup="validateForm()" required></p>
                                             <p>Password: <input type="password" class="form-control" id="change_password" name="change_password" required></p>
                                     </div>
                                     <div class="modal-footer">
                                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                        <button type="submit" class="btn btn-danger">Save Changes</button>
+                                        <button type="submit" class="btn btn-danger" id="submit-change">Save Changes</button>
                                     </div>
                                 </form>
                             </div>
@@ -113,5 +114,36 @@
                 </div>
             </section>
         </section>
+        <script type="text/javascript">
+            // var question = null;
+            // var score = 0;
+
+            // function getQuestion() {
+            //     // instantiate the object
+            //     var ajax = new XMLHttpRequest();
+            //     // open the request
+            //     ajax.open("GET", "?command=scoreboard", true);
+            //     // ask for a specific response
+            //     ajax.responseType = "json";
+            //     // send the request
+            //     ajax.send(null);
+            
+            //     // What happens if the load succeeds
+            //     ajax.addEventListener("load", function() {
+            //         // set question
+            //         if (this.status == 200) { // worked 
+            //             question = this.response;
+            //             // displayQuestion();
+            //             console.log(question);
+            //         }
+            //     });
+            
+            //     // What happens on error
+            //     // ajax.addEventListener("error", function() {
+            //     //     document.getElementById("message").innerHTML = 
+            //     //         "<div class='alert alert-danger'>An Error Occurred</div>";
+            //     // });
+            // }
+        </script>
     </body>
 </html>

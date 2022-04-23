@@ -38,7 +38,9 @@ class BattleshipController {
         $_SESSION["change_error_message"] = "";
         if (isset($_POST["change_username"]) && !empty($_POST["change_password"])) {
             $new_user = $this->db->query("select * from user where username = ?;", "s", $_POST["change_username"]);
-            if (!empty($new_user)) {
+            if ($_POST["change_username"] == $_SESSION["username"]) {
+                return;
+            } else if (!empty($new_user)) {
                 $_SESSION["change_error_message"] = "USERNAME TAKEN";
                 return;
             } else if (!$this->validateUsername($_POST["change_username"])) {
@@ -64,10 +66,11 @@ class BattleshipController {
         $change_error_message = "";
         if (isset($_SESSION["change_error_message"])) {
             $change_error_message = $_SESSION["change_error_message"];
+            unset($_SESSION["change_error_message"]);
         }
 
         $personal_scores = $this->db->query("select * from scores where username=? order by score DESC, gameDate ASC limit 15;", "s", $_SESSION["username"]);
-        $personal_scores_json = json_encode($personal_scores);
+        // $personal_scores_json = json_encode($personal_scores);
         while (sizeof($personal_scores) < 15) {
             $empty_slot = array('username'=>'', 'score'=>'', 'gameDate'=>'');
             array_push($personal_scores, $empty_slot);
@@ -80,10 +83,18 @@ class BattleshipController {
         }
 
         include("templates/scoreboard.php");
+        // header("Content-type: application/json");
+        // echo json_encode($personal_scores, JSON_PRETTY_PRINT);
     }
 
     // LOADS INSTRUCTIONS PAGE
     public function instructions() {
+        $change_error_message = "";
+        if (isset($_SESSION["change_error_message"])) {
+            $change_error_message = $_SESSION["change_error_message"];
+            unset($_SESSION["change_error_message"]);
+        }
+
         include("templates/instructions.php");
     }
 
