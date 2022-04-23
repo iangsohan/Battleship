@@ -1,9 +1,8 @@
 <?php
-// Authors: Ian Sohan
 class Config {
     public static $db = [
         "host" => "localhost",
-        "user" => "",
+        "user" => "root",
         "pass" => "",
         "database" => "battleship"
     ];
