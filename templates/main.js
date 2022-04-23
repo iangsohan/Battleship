@@ -131,7 +131,7 @@ function attack(id) {
         $("#"+box).addClass("btn-danger");
         user_game.hits.push(box);
         user_game.score += 1000;
-        if (user_game.hits.length == 15) {
+        if (user_game.hits.length == 16) {
             document.getElementById("score").innerHTML = "Score: " + user_game.score;
             endGame(true);
             return;
@@ -152,7 +152,7 @@ function attack(id) {
         $("#"+oppo_box).addClass("btn-danger");
         oppo_game.hits.push(oppo_box);
         user_game.score -= 500;
-        if (oppo_game.hits.length == 15) {
+        if (oppo_game.hits.length == 16) {
             document.getElementById("score").innerHTML = "Score: " + user_game.score;
             endGame(false);
             return;
