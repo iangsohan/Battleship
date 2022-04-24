@@ -118,26 +118,29 @@ class BattleshipController {
 
     // HANDLES CHANGE USERNAME LOGIC
     public function changeUsername() {
+        $error = false;
         if (isset($_POST["change_username"]) && !empty($_POST["change_password"])) {
             $new_user = $this->db->query("select * from user where username = ?;", "s", $_POST["change_username"]);
             if ($_POST["change_username"] == $_SESSION["username"]) {
-                return;
+                $error = true;
             } else if (!empty($new_user)) {
                 $_SESSION["change_error_message"] = "USERNAME TAKEN";
-                return;
+                $error = true;
             } else if (!$this->validateUsername($_POST["change_username"])) {
                 $_SESSION["change_error_message"] = "USERNAME DOES NOT MEET REQUIREMENTS";
-                return;
+                $error = true;
             }
 
-            $data = $this->db->query("select * from user where username = ?;", "s", $_SESSION["username"]);
-            if (!empty($data)) {
-                if (password_verify($_POST["change_password"], $data[0]["password"])) {
-                    $this->db->query("update user set username = ? where username = ?;", "ss", $_POST["change_username"], $_SESSION["username"]);
-                    $this->db->query("update scores set username = ? where username = ?;", "ss", $_POST["change_username"], $_SESSION["username"]);
-                    $_SESSION["username"] = $_POST["change_username"];
-                } else {
-                    $_SESSION["change_error_message"] = "INCORRECT PASSWORD";
+            if ($error == false) {
+                $data = $this->db->query("select * from user where username = ?;", "s", $_SESSION["username"]);
+                if (!empty($data)) {
+                    if (password_verify($_POST["change_password"], $data[0]["password"])) {
+                        $this->db->query("update user set username = ? where username = ?;", "ss", $_POST["change_username"], $_SESSION["username"]);
+                        $this->db->query("update scores set username = ? where username = ?;", "ss", $_POST["change_username"], $_SESSION["username"]);
+                        $_SESSION["username"] = $_POST["change_username"];
+                    } else {
+                        $_SESSION["change_error_message"] = "INCORRECT PASSWORD";
+                    }
                 }
             }
         }
