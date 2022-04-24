@@ -55,7 +55,7 @@
                     </div>
                 </div>
                 <div class="content col-6">
-                    <h1><?=$user["username"]?></h1>
+                    <h1 id="username"><?=$user["username"]?></h1>
                     <div class="btn-toolbar mb-3" role="toolbar" aria-label="Toolbar with button groups"  style="background-image: url('styles/grid.png')">
                         <?php for ($i = 10; $i < 20; $i++) { ?>
                             <div class="btn-group mr-2" role="group" aria-label="First group" style="width: 100%;">

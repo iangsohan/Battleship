@@ -15,7 +15,7 @@
         <script src="templates/main.js"></script>   
         <title>Battleship</title>
     </head>  
-    <body onload="currentScore();">
+    <body onload="currentScore(); populateScores();">
         <header class="col-12">
             <nav>
                 <ul>
@@ -84,8 +84,8 @@
                             <?php for ($i = 0; $i < 15; $i++) { ?>
                             <tr>
                                 <th scope="row"><?=$i + 1?></th>
-                                <td><?=$personal_scores[$i]['username']?></td>
-                                <td><?=$personal_scores[$i]['score']?></td>
+                                <td id=<?="personal_username" . (string)$i?>></td>
+                                <td id=<?="personal_score" . (string)$i?>></td>
                             </tr>
                             <?php } ?>
                         </tbody>
@@ -105,8 +105,8 @@
                             <?php for ($i = 0; $i < 15; $i++) { ?>
                             <tr>
                                 <th scope="row"><?=$i + 1?></th>
-                                <td><?=$community_scores[$i]['username']?></td>
-                                <td><?=$community_scores[$i]['score']?></td>
+                                <td id=<?="community_username" . (string)$i?>></td>
+                                <td id=<?="community_score" . (string)$i?>></td>
                             </tr>
                             <?php } ?>
                         </tbody>
@@ -114,36 +114,5 @@
                 </div>
             </section>
         </section>
-        <script type="text/javascript">
-            // var question = null;
-            // var score = 0;
-
-            // function getQuestion() {
-            //     // instantiate the object
-            //     var ajax = new XMLHttpRequest();
-            //     // open the request
-            //     ajax.open("GET", "?command=scoreboard", true);
-            //     // ask for a specific response
-            //     ajax.responseType = "json";
-            //     // send the request
-            //     ajax.send(null);
-            
-            //     // What happens if the load succeeds
-            //     ajax.addEventListener("load", function() {
-            //         // set question
-            //         if (this.status == 200) { // worked 
-            //             question = this.response;
-            //             // displayQuestion();
-            //             console.log(question);
-            //         }
-            //     });
-            
-            //     // What happens on error
-            //     // ajax.addEventListener("error", function() {
-            //     //     document.getElementById("message").innerHTML = 
-            //     //         "<div class='alert alert-danger'>An Error Occurred</div>";
-            //     // });
-            // }
-        </script>
     </body>
 </html>

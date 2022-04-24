@@ -45,7 +45,7 @@
                             <button type="submit" class="btn btn-info mb-3" id="submit-login">Login</button>
                         </div>
                     </form>
-                    <?=$error_message?>
+                    <?=$login_error_message?>
                 </div>
             </div>
             <div class="content col-6">
@@ -59,7 +59,7 @@
                             <button type="submit" class="btn btn-info mb-3" id="submit-create" disabled>Create Account</button>
                         </div>
                     </form>
-                    <?=$error_message_confirm?>
+                    <?=$confirm_error_message?>
                 </div>
             </div>
         </section>

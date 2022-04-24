@@ -1,8 +1,9 @@
-// game.php
+// LOGIC FOR game.php
 var gameStarted = false;
 var oppo_game = {ships:[], miss:[], hits:[]};
 var user_game = {ships:[], miss:[], hits:[], score:0};
 
+// CREATES SHIPS FOR newGame()
 function makeShip(size, ships, offset) {
     var ship = [];
     var invalid = true;
@@ -40,8 +41,9 @@ function makeShip(size, ships, offset) {
     return ships;
 }
 
+// POPULATES GAME BOARD IF GAME IS IN SESSION
 function populateBoard() {
-    if (localStorage.getItem("gameStarted") != "true") {
+    if (localStorage.getItem("gameStarted") != "true" || localStorage.getItem("username") != document.getElementById("username").innerHTML) {
         return;
     }
     gameGrid();
@@ -69,6 +71,7 @@ function populateBoard() {
     }
 }
 
+// SETS THE OPPONENT GAME BUTTONS TO ATTACK IN newGame()
 function gameGrid() {
     var box_click = function() {
         if (gameStarted) {
@@ -81,7 +84,10 @@ function gameGrid() {
     }
 }
 
+// STARTS NEW GAME
 function newGame() {
+    localStorage.setItem("username", document.getElementById("username").innerHTML);
+
     oppo_game = {ships:[], miss:[], hits:[]};
     user_game = {ships:[], miss:[], hits:[], score:0};
 
@@ -114,15 +120,14 @@ function newGame() {
         document.getElementById(user_game.ships[i].toString()).classList.add("btn-light");
     }
     
-    console.log(oppo_game.ships);
-
     gameStarted = true;
     localStorage.setItem("gameStarted", true);
     localStorage.setItem("oppo_game", JSON.stringify(oppo_game));
     localStorage.setItem("user_game", JSON.stringify(user_game));
 }
 
-function attack(id) {
+// RUNS ATTACK LOGIC FOR USER CLICK AND OPPONENT RESPONSE
+async function attack(id) {
     var box = parseInt(id);
     if (user_game.hits.includes(box) || user_game.miss.includes(box)) {
         alert("Already clicked this box!");
@@ -169,6 +174,7 @@ function attack(id) {
     localStorage.setItem("user_game", JSON.stringify(user_game));
 }
 
+// ENDS GAME AND OPENS RECORD SCORE MODAL
 function endGame(winner) {
     gameStarted = false;
     localStorage.setItem("gameStarted", false);
@@ -181,13 +187,14 @@ function endGame(winner) {
     $('#myModal').modal("show");
 }
 
+// SUBMITS GAME SCORE FORM TO PHP HANDLING
 function submitScore() {
     document.getElementById("record_score").value = user_game.score;
     document.getElementById("score-form").submit();
 }
 
 
-// login.php and changeUsername()
+// VALIDATES FORM FOR login.php AND changeUsername()
 function validateForm() {
     var pattern = "";
     const id = event.target.id;
@@ -203,9 +210,10 @@ function validateForm() {
     }
 }
 
+// VALIDATES CREATE ACCOUNT CONFIRM PASSWORD
 function validateConfirm() {
     const id = event.target.id;
-    if (document.getElementById(event.target.id).value.localeCompare(document.getElementById("new_password").value) != 0) {
+    if (document.getElementById(id).value.localeCompare(document.getElementById("new_password").value) != 0) {
         $("#"+id).css("background-color", "#ff9999");
     } else {
         $("#"+id).css("background-color", "#b3ffb3");
@@ -213,10 +221,31 @@ function validateConfirm() {
     }
 }
 
+// LOADS CURRENT SCORE FOR scoreboard.php AND instructions.php
 function currentScore() {
     if (localStorage.getItem("gameStarted") != "true") {
         return;
     }
     user_game = JSON.parse(localStorage.getItem("user_game"));
     document.getElementById("current-score").innerHTML = "Current Score: " + user_game.score;
+}
+
+// POPULATES SCOREBOARDS FOR scoreboard.php
+function populateScores() {
+    $(function(){
+        $.ajax({
+            type:'GET',
+            url: '?command=populateScores',
+            success: function (data) {
+                for (let i = 0; i < data[0].length; i++) {
+                    document.getElementById("personal_username" + i.toString()).innerHTML = data[0][i].username;
+                    document.getElementById("personal_score" + i.toString()).innerHTML = data[0][i].score;
+                }
+                for (let i = 0; i < data[1].length; i++) {
+                    document.getElementById("community_username" + i.toString()).innerHTML = data[1][i].username;
+                    document.getElementById("community_score" + i.toString()).innerHTML = data[1][i].score;
+                }
+            }
+        });
+    });
 }

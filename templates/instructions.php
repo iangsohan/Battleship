@@ -43,7 +43,6 @@
                     Change Username
                 </button>
                 <br>
-                <p><?=$change_error_message?></p>
 
                 <!-- Modal -->
                 <div class="modal fade" id="myModal" tabindex="-1" aria-labelledby="myModalLabel" aria-hidden="true" data-bs-backdrop="static" data-bs-keyboard="false">
