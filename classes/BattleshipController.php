@@ -165,7 +165,8 @@ class BattleshipController {
                     $_SESSION["username"] = $_POST["username"];
                     $_SESSION["password"] = $_POST["password"];
                     $_SESSION["score"] = 0;
-                    header("Location: ?command=game");
+                    // header("Location: ?command=game");
+                    header("Location: ?command=instructions");
                     return;
                 } else {
                     $login_error_message = "INCORRECT PASSWORD";
@@ -191,7 +192,8 @@ class BattleshipController {
                     $_SESSION["username"] = $_POST["new_username"];
                     $_SESSION["password"] = $_POST["new_password"];
                     $_SESSION["score"] = 0;
-                    header("Location: ?command=game");
+                    // header("Location: ?command=game");
+                    header("Location: ?command=instructions");
                     return;
                 }
             }
