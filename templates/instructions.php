@@ -39,13 +39,13 @@
                 <p id="current-score">Current Score: 0</p>
 
                 <!-- Button trigger modal -->
-                <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#myModal" title="Change Username button">
+                <!-- <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#myModal" title="Change Username button">
                     Change Username
                 </button>
-                <br>
+                <br> -->
 
                 <!-- Modal -->
-                <div class="modal fade" id="myModal" tabindex="-1" aria-labelledby="myModalLabel" aria-hidden="true" data-bs-backdrop="static" data-bs-keyboard="false">
+                <!-- <div class="modal fade" id="myModal" tabindex="-1" aria-labelledby="myModalLabel" aria-hidden="true" data-bs-backdrop="static" data-bs-keyboard="false">
                     <div class="modal-dialog">
                         <div class="modal-content">
                             <div class="change-username modal-header">
@@ -64,7 +64,15 @@
                             </form>
                         </div>
                     </div>
-                </div>
+                </div>  -->
+                <button type="button" class="btn btn-danger" title="Play Game button" onclick="newGame();"><a href="?command=game" style="text-decoration:none; color:white;">Play Game</a></button>
+            </div>
+        </section>
+        <section>
+            <div class ="col-12" style="padding-top:20px;">
+                <strong style="color:#47566b; font-size: 50px; font-weight: bold; -webkit-text-stroke-width: 1.25px; -webkit-text-stroke-color: #b3becc;">Welcome to Battleship!</strong>
+                <p class="col-6" style="color: #b3becc; font-size: 22px; padding: 35px; padding-top:40px;">To get started click the Play Game button in the top right or on the top bar. Then click the New Game button on the game page. This will randomly load where your 5 ships are placed on your board. Then, it's time to play Battleship! For each of your turns, click a square on your opponents board. The square on their board will turn yellow if you missed one of their ships (-10 points) and red if you have a hit (+1000 points)! At the same time your opponent (the computer) will attack a spot on your board. If they hit your ship that square on your board will turn red (-500 points) and if they have a miss the square on your board will turn yellow (+20 points). The first player to find all 16 squares of the opponents 5 ships wins! Your scoreboard will show you your top 15 scores, as well as the top 15 scores of everyone playing. Good luck!</p>
+                <img class="col-6" src="styles/example.png" alt="example board" style="width:45%; padding: 5vw; padding-top:2.5vw; text-align:center;"/>
             </div>
         </section>
     </body>
