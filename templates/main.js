@@ -169,7 +169,7 @@ async function attack(id) {
         user_game.score += 20;
     }
 
-    document.getElementById("score").innerHTML = "Score: " + user_game.score;
+    document.getElementById("score").innerHTML = "Current Score: " + user_game.score;
     localStorage.setItem("oppo_game", JSON.stringify(oppo_game));
     localStorage.setItem("user_game", JSON.stringify(user_game));
 }
