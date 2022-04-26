@@ -37,34 +37,6 @@
             </div>
             <div class="score col-3">
                 <p id="current-score">Current Score: 0</p>
-
-                <!-- Button trigger modal -->
-                <!-- <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#myModal" title="Change Username button">
-                    Change Username
-                </button>
-                <br> -->
-
-                <!-- Modal -->
-                <!-- <div class="modal fade" id="myModal" tabindex="-1" aria-labelledby="myModalLabel" aria-hidden="true" data-bs-backdrop="static" data-bs-keyboard="false">
-                    <div class="modal-dialog">
-                        <div class="modal-content">
-                            <div class="change-username modal-header">
-                                <h3 class="modal-title" id="exampleModalLabel">Change Username</h3>
-                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                            </div>
-                            <form action="?command=changeUsername" method="post">
-                                <div class="change-username modal-body">
-                                        <p>New Username: <input type="text" class="form-control" id="change_username" name="change_username" onkeyup="validateForm()" required></p>
-                                        <p>Password: <input type="password" class="form-control" id="change_password" name="change_password" required></p>
-                                </div>
-                                <div class="modal-footer">
-                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                    <button type="submit" class="btn btn-danger" id="submit-change">Save Changes</button>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
-                </div>  -->
                 <button type="button" class="btn btn-danger" title="Play Game button" onclick="newGame();"><a href="?command=game" style="text-decoration:none; color:white;">Play Game</a></button>
             </div>
         </section>

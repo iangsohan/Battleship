@@ -50,7 +50,7 @@ function populateBoard() {
     gameStarted = true;
     oppo_game = JSON.parse(localStorage.getItem("oppo_game"));
     user_game = JSON.parse(localStorage.getItem("user_game"));
-    document.getElementById("score").innerHTML = "Score: " + user_game.score;
+    document.getElementById("score").innerHTML = "Current Score: " + user_game.score;
     for (let i = 0; i < user_game.ships.length; i++) {
         document.getElementById(user_game.ships[i].toString()).classList.add("btn-light");
     }
@@ -93,7 +93,7 @@ function newGame() {
 
     gameGrid();
 
-    document.getElementById("score").innerHTML = "Score: 0";
+    document.getElementById("score").innerHTML = "Current Score: 0";
 
     for (let i = 0; i < 200; i++) {
         document.getElementById(i.toString()).classList.remove("btn-light");
@@ -137,7 +137,7 @@ async function attack(id) {
         user_game.hits.push(box);
         user_game.score += 1000;
         if (user_game.hits.length == 16) {
-            document.getElementById("score").innerHTML = "Score: " + user_game.score;
+            document.getElementById("score").innerHTML = "Current Score: " + user_game.score;
             endGame(true);
             return;
         }
@@ -158,7 +158,7 @@ async function attack(id) {
         oppo_game.hits.push(oppo_box);
         user_game.score -= 500;
         if (oppo_game.hits.length == 16) {
-            document.getElementById("score").innerHTML = "Score: " + user_game.score;
+            document.getElementById("score").innerHTML = "Current Score: " + user_game.score;
             endGame(false);
             return;
         }
