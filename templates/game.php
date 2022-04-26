@@ -36,7 +36,7 @@
                     <img class="logo" src="styles/logo.png" alt="Battleship logo" />
                 </div>
                 <div class="score col-3">
-                    <p id="score">Score: 0</p>
+                    <p id="score">Current Score: 0</p>
                     <button type="button" class="btn btn-danger" title="New Game button" onclick="newGame();">New Game</button>
                 </div>
             </section>
