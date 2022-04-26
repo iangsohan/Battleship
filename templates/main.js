@@ -1,3 +1,5 @@
+// Authors: Ian Sohan (Primary) and Emma Forrestal (Secondary)
+
 // LOGIC FOR game.php
 var gameStarted = false;
 var oppo_game = {ships:[], miss:[], hits:[]};

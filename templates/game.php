@@ -46,9 +46,8 @@
                     <div class="btn-toolbar mb-3" role="toolbar" aria-label="Toolbar with button groups"  style="background-image: url('styles/grid.png')">
                         <?php for ($i = 0; $i < 10; $i++) { ?>
                             <div class="btn-group mr-2" role="group" aria-label="First group" style="width: 100%;">
-                                <button type="button" class="btn btn-outline-secondary" style="aspect-ratio: 1 / 1;" title=<?= "oa". (string)($i*10)?>  id=<?=(string)($i*10)?>></button>
-                                <?php for ($j = $i * 10 + 1; $j < ($i + 1) * 10; $j++) { ?>
-                                    <button type="button" class="btn btn-outline-secondary" title=<?="oa". (string)($j)?> id=<?=(string)($j)?>></button>
+                                <?php for ($j = $i * 10; $j < ($i + 1) * 10; $j++) { ?>
+                                    <button type="button" class="btn btn-outline-secondary" style="aspect-ratio: 1 / 1;" title=<?="o". (string)($j)?> id=<?=(string)($j)?>></button>
                                 <?php } ?>
                             </div>
                         <?php } ?>
@@ -59,9 +58,8 @@
                     <div class="btn-toolbar mb-3" role="toolbar" aria-label="Toolbar with button groups"  style="background-image: url('styles/grid.png')">
                         <?php for ($i = 10; $i < 20; $i++) { ?>
                             <div class="btn-group mr-2" role="group" aria-label="First group" style="width: 100%;">
-                                <button type="button" class="btn btn-outline-secondary" style="aspect-ratio: 1 / 1;" title=<?="au". (string)($i*10)?>  id=<?=(string)($i*10)?>></button>
-                                <?php for ($j = $i * 10 + 1; $j < ($i + 1) * 10; $j++) { ?>
-                                    <button type="button" class="btn btn-outline-secondary" title=<?="au". (string)($j)?> id=<?=(string)($j)?>></button>
+                                <?php for ($j = $i * 10; $j < ($i + 1) * 10; $j++) { ?>
+                                    <button type="button" class="btn btn-outline-secondary" style="aspect-ratio: 1 / 1;" title=<?="u". (string)($j)?> id=<?=(string)($j)?>></button>
                                 <?php } ?>
                             </div>
                         <?php } ?>
