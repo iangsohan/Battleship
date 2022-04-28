@@ -53,7 +53,12 @@
                     <h1>New User</h1>
                     <form action="?command=login" method="post">
                         <p>Username: <input type="text" class="form-control" id="new_username" name="new_username" onkeyup="validateForm();" required></p>
-                        <p>Password: <input type="password" class="form-control" id="new_password" name="new_password" onkeyup="validateForm();" required></p>
+                        <p>Password: 
+                            <button type="button" class="btn btn-danger h6" style="font-size: 8px" data-bs-toggle="modal" data-bs-target="#myModal" title="Change Username button">
+                                REQUIREMENTS
+                            </button>
+                            <input type="password" class="form-control" id="new_password" name="new_password" onkeyup="validateForm();" required>
+                        </p>
                         <p>Confirm: <input type="password" class="form-control" id="new_password_confirm" name="new_password_confirm" onkeyup="validateConfirm();" required></p>
                         <div class="text-center">                
                             <button type="submit" class="btn btn-info mb-3" id="submit-create" disabled>Create Account</button>
@@ -63,5 +68,29 @@
                 </div>
             </div>
         </section>
+
+        <!-- Modal -->
+        <div class="modal fade" id="myModal" tabindex="-1" aria-labelledby="myModalLabel" aria-hidden="true" data-bs-backdrop="static" data-bs-keyboard="false">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="change-username modal-header">
+                        <h3 class="modal-title" id="myModalLabel">Password Requirements</h3>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="change-username modal-body" style="text-align: left">
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item">BETWEEN 8 AND 100 CHARACTER</li>
+                            <li class="list-group-item">AT LEAST 1 LOWERCASE LETTER</li>
+                            <li class="list-group-item">AT LEAST 1 UPPERCASE LETTER</li>
+                            <li class="list-group-item">AT LEAST 1 NUMBER</li>
+                            <li class="list-group-item">AT LEAST 1 SPECIAL CHARACTER</li>
+                        </ul>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
     </body>
 </html>
